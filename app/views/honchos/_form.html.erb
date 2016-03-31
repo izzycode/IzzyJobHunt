@@ -1,0 +1,41 @@
+<%= form_for(@honcho) do |f| %>
+  <% if @honcho.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@honcho.errors.count, "error") %> prohibited this honcho from being saved:</h2>
+
+      <ul>
+      <% @honcho.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :position %><br>
+    <%= f.text_field :position %>
+  </div>
+  <div class="field">
+    <%= f.label :phone_number %><br>
+    <%= f.text_field :phone_number %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :links %><br>
+    <%= f.text_area :links %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

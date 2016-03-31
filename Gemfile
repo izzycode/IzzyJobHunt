@@ -33,7 +33,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 gem 'hirb'
-gem 'twitter-bootstrap-rails', '~> 3.2', '>= 3.2.2'
+gem "twitter-bootstrap-rails"
 gem 'rails_12factor', group: :production
 
 group :development, :test do

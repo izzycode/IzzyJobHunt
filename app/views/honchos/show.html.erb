@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @honcho.name %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @honcho.position %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @honcho.phone_number %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @honcho.email %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @honcho.notes %>
+</p>
+
+<p>
+  <strong>Links:</strong>
+  <%= @honcho.links %>
+</p>
+
+<%= link_to 'Edit', edit_honcho_path(@honcho) %> |
+<%= link_to 'Back', honchos_path %>
