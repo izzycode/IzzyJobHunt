@@ -10,5 +10,12 @@
   <%= @job.web_address %>
 </p>
 
+<% if !@job.company.nil? %>
+  <p>
+    <strong>Company:</strong>
+    <%= @job.company.name %>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_job_path(@job) %> |
 <%= link_to 'Back', jobs_path %>

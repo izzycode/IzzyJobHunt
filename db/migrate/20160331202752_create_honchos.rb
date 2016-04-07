@@ -9,7 +9,6 @@ class CreateHonchos < ActiveRecord::Migration
       t.text :links
 
       t.belongs_to :company, index: true
-      t.belongs_to :user, index: true
 
       t.timestamps null: false
     end

@@ -21,13 +21,11 @@ ActiveRecord::Schema.define(version: 20160331203505) do
     t.string   "medium"
     t.text     "summary"
     t.integer  "job_id"
-    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_index "attempts", ["job_id"], name: "index_attempts_on_job_id", using: :btree
-  add_index "attempts", ["user_id"], name: "index_attempts_on_user_id", using: :btree
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -47,13 +45,11 @@ ActiveRecord::Schema.define(version: 20160331203505) do
     t.text     "notes"
     t.text     "links"
     t.integer  "company_id"
-    t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
 
   add_index "honchos", ["company_id"], name: "index_honchos_on_company_id", using: :btree
-  add_index "honchos", ["user_id"], name: "index_honchos_on_user_id", using: :btree
 
   create_table "jobs", force: :cascade do |t|
     t.string   "position"
@@ -70,9 +66,9 @@ ActiveRecord::Schema.define(version: 20160331203505) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

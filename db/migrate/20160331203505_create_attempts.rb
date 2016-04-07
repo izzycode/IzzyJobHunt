@@ -6,7 +6,6 @@ class CreateAttempts < ActiveRecord::Migration
       t.text :summary
 
       t.belongs_to :job, index: true
-      t.belongs_to :user, index: true
 
       t.timestamps null: false
     end

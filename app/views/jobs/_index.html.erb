@@ -1,0 +1,54 @@
+<h1>Jobs</h1>
+
+<div class="panel-group col-lg-10" id="accordion">
+  <% @user.jobs.each_with_index do |job, i| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= i %>" class="btn btn-sm btn-info"><%= job.position.capitalize %></a>
+          <%= link_to job.web_address, job.web_address %></h4>
+      </div>
+      <div id="collapse<%= i %>" class="panel-collapse collapse">
+        <div class="panel-body">
+          <% if !job.company.nil? %>
+            <h4><strong>Company:</strong></h4>
+
+            <!-- Company Modal button -->
+            <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#myModal">
+                <%= job.company.name %>
+            </button><!-- Company Modal button -->
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel"><%= job.company.name %></h4>
+                  </div>
+                  <div class="modal-body">
+
+                    <%= render 'companies/show', company: job.company %>
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <%= link_to "Add Details", edit_company_path(job.company), {class:"btn btn-xs btn-warning"} %>
+          <% else %>
+            <div id="job<%=i%>">
+              <%= form_for job do |f| %>`
+                <%= f.select "company_id", Company.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}, {class:"form-control", onchange:'this.form.submit();'} %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

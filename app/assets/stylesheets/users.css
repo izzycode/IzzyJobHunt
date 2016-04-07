@@ -2,3 +2,22 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+.accordion-heading
+{
+    background-color:#0CF;
+}
+.accordion-heading:hover
+{
+    background-color:#000;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+.accordion-heading > a
+{
+    color:#FFF;
+    text-decoration:none;
+    text-transform:uppercase;
+}

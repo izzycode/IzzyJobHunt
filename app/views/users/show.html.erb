@@ -1,19 +1,6 @@
-<p id="notice"><%= notice %></p>
+<h2>My <%= current_user.jobs.count %>/<%= current_user.many_honchos %>s</h2>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<%= link_to "New Job", new_job_path, class:"btn btn-info" %>
+<%= link_to "New Company", new_company_path, class:"btn btn-info" %>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= render 'jobs/index' %>

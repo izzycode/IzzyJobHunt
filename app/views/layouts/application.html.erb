@@ -67,22 +67,27 @@
         <% if logged_in? %>
           <div class="col-lg-3">
             <div class="well sidebar-nav">
-              <h3><%= humanize(User.name) %></h3>
+              <h3><%= link_to "#{current_user.name}'s Page", current_user %></h3>
               <ul class="nav nav-list">
-                <li class="nav-header">Sidebar</li>
-                <li><%= link_to "Link1", "/path1"  %></li>
-                <li><%= link_to "Link2", "/path2"  %></li>
-                <li><%= link_to "Link3", "/path3"  %></li>
+                <li class="nav-header"><%= current_user.email  %></li><br />
               </ul>
+              <%= button_to "Log Out", logout_path, class:"btn btn-xs btn-danger"  %>
+              <%= link_to "Edit", edit_user_path(current_user), class:"btn btn-xs btn-primary" %>
             </div><!--/.well -->
           </div><!--/span-->
         <% end %>
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2016</p>
+        <p>&copy; Izzy's Codes 2016</p>
         <hr />
-        <%= params %>
+        <%= params %><br />
+        <%= logged_in? %><br />
+        <% if logged_in? %>
+          <%= current_user.name%><br />
+          <p>user id: <%= current_user.id%></p>
+        <% end %>
+
       </footer>
 
     </div> <!-- /container -->
