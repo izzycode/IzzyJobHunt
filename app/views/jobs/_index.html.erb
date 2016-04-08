@@ -12,33 +12,8 @@
         <div class="panel-body">
           <h4><strong>Company:</strong></h4>
           <% if !job.company.nil? %>
+            <%= render 'companies/show', company: job.company, i: i %>
 
-            <!-- Company Modal button -->
-            <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#myModal">
-                <%= job.company.name %>
-            </button><!-- Company Modal button -->
-
-
-            <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel"><%= job.company.name %></h4>
-                  </div>
-                  <div class="modal-body">
-
-                    <%= render 'companies/show', company: job.company %>
-
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-                  </div>
-                </div>
-              </div>
-            </div>
             <%= link_to "Add Details", edit_company_path(job.company), {class:"btn btn-xs btn-warning"} %>
           <% else %>
             <%= render 'companies/index', job: job, i: i%>

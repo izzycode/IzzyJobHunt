@@ -1,34 +1,44 @@
 
+<!-- Company Modal button -->
+<button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#myModal<%= i %>">
+    <%= company.name %>
+</button><!-- Company Modal button -->
 
-<%= current_user.name%>
-<%= company %>
-<%= %>
-<%= %>
+<!-- Modal -->
+<div class="modal fade" id="myModal<%= i %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><%= company.name %></h4>
+        </div>
+        <div class="modal-body">
 
+          <p>
+            <strong>Address:</strong>
+            <%= company.address %>
+          </p>
 
+          <p>
+            <strong>Main phone:</strong>
+            <%= company.main_phone %>
+          </p>
 
+          <p>
+            <strong>Useful links:</strong>
+            <%= company.useful_links %>
+          </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= company.name %>
-</p>
+          <p>
+            <strong>Notes:</strong>
+            <%= company.notes %>
+          </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= company.address %>
-</p>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
-<p>
-  <strong>Main phone:</strong>
-  <%= company.main_phone %>
-</p>
-
-<p>
-  <strong>Useful links:</strong>
-  <%= company.useful_links %>
-</p>
-
-<p>
-  <strong>Notes:</strong>
-  <%= company.notes %>
-</p>
+      </div>
+    </div>
+  </div>
+</div>
