@@ -10,8 +10,8 @@
       </div>
       <div id="collapse<%= i %>" class="panel-collapse collapse">
         <div class="panel-body">
+          <h4><strong>Company:</strong></h4>
           <% if !job.company.nil? %>
-            <h4><strong>Company:</strong></h4>
 
             <!-- Company Modal button -->
             <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#myModal">
@@ -41,11 +41,7 @@
             </div>
             <%= link_to "Add Details", edit_company_path(job.company), {class:"btn btn-xs btn-warning"} %>
           <% else %>
-            <div id="job<%=i%>">
-              <%= form_for job do |f| %>`
-                <%= f.select "company_id", Company.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}, {class:"form-control", onchange:'this.form.submit();'} %>
-              <% end %>
-            </div>
+            <%= render 'companies/index', job: job, i: i%>
           <% end %>
         </div>
       </div>
