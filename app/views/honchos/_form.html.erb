@@ -11,31 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :position %><br>
-    <%= f.text_field :position %>
-  </div>
-  <div class="field">
-    <%= f.label :phone_number %><br>
-    <%= f.text_field :phone_number %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :notes %><br>
-    <%= f.text_area :notes %>
-  </div>
-  <div class="field">
-    <%= f.label :links %><br>
-    <%= f.text_area :links %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.label :name %>
+  <%= f.text_field :name, class:"form-control" %>
+  <%= f.label :position %>
+  <%= f.text_field :position, class:"form-control" %>
+  <%= f.label :phone_number %>
+  <%= f.text_field :phone_number, class:"form-control" %>
+  <%= f.label :email %>
+  <%= f.email_field :email, class:"form-control" %>
+  <%= f.label :notes %>
+  <%= f.text_area :notes, class:"form-control" %>
+  <%= f.label :useful_links %>
+  <%= f.text_area :links, class:"form-control" %>
+  <%= f.text_field :company_id, value: params[:company_id] %>
+  <br />
+  <%= f.submit "Submit", class:"btn btn-success" %>
+
 <% end %>
+<br />

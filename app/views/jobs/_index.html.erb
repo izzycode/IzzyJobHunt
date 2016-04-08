@@ -10,14 +10,28 @@
       </div>
       <div id="collapse<%= i %>" class="panel-collapse collapse">
         <div class="panel-body">
+
+          <!-- Company -->
           <h4><strong>Company:</strong></h4>
           <% if !job.company.nil? %>
             <%= render 'companies/show', company: job.company, i: i %>
 
             <%= link_to "Add Details", edit_company_path(job.company), {class:"btn btn-xs btn-warning"} %>
+<!-- Shows Honchos long with company should a company be selected -->
+            <!-- Honchos -->
+            <h4><strong>Contacts:</strong></h4>
+            <% if any_company_kahunas?(job.company) %>
+              <%= render 'honchos/index', honchos: company_kahunas(job.company), i: i %>
+            <% else %>
+              <%= link_to "Add Contact", new_honcho_path(company_id: job.company.id), class:"btn btn-xs btn-warning", company_id: job.company.id %>
+            <% end %>
+            <!-- Honchos -->
+
           <% else %>
             <%= render 'companies/index', job: job, i: i%>
           <% end %>
+          <!-- Company -->
+
         </div>
       </div>
     </div>

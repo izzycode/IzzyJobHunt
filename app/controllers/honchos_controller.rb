@@ -28,7 +28,7 @@ class HonchosController < ApplicationController
 
     respond_to do |format|
       if @honcho.save
-        format.html { redirect_to @honcho, notice: 'Honcho was successfully created.' }
+        format.html { redirect_to current_user, notice: 'Honcho was successfully created.' }
         format.json { render :show, status: :created, location: @honcho }
       else
         format.html { render :new }
@@ -69,6 +69,6 @@ class HonchosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def honcho_params
-      params.require(:honcho).permit(:name, :position, :phone_number, :email, :notes, :links)
+      params.require(:honcho).permit(:name, :position, :phone_number, :email, :notes, :links, :company_id)
     end
 end
