@@ -15,4 +15,4 @@
 
 *.txt
 /config
-/migrate/seeds.rb
+/db/seeds.rb
