@@ -55,9 +55,10 @@ ActiveRecord::Schema.define(version: 20160331203505) do
     t.string   "position"
     t.string   "web_address"
     t.integer  "user_id"
+    t.boolean  "archived",    default: false
     t.integer  "company_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   add_index "jobs", ["company_id"], name: "index_jobs_on_company_id", using: :btree
