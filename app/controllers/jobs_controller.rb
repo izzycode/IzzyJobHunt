@@ -28,7 +28,7 @@ class JobsController < ApplicationController
 
     respond_to do |format|
       if @job.save
-        format.html { redirect_to @job, notice: 'Job was successfully created.' }
+        format.html { redirect_to current_user, notice: 'Job was successfully created.' }
         format.js { flash[:notice] = "Company successfully added"}
       else
         format.html { render :new }

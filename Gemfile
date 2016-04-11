@@ -35,6 +35,7 @@ gem 'bcrypt'
 gem 'hirb'
 gem 'awesome_print'
 gem "twitter-bootstrap-rails"
+
 gem 'rails_12factor', group: :production
 
 group :development, :test do

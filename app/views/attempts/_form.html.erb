@@ -2,7 +2,6 @@
   <% if @attempt.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@attempt.errors.count, "error") %> prohibited this attempt from being saved:</h2>
-
       <ul>
       <% @attempt.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,19 +10,17 @@
     </div>
   <% end %>
 
-  <div class="field">
     <%= f.label :date %><br>
-    <%= f.datetime_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :medium %><br>
-    <%= f.text_field :medium %>
-  </div>
-  <div class="field">
+    <%= f.datetime_select :date, class:"form-control" %>
+    <%= f.label :form_of_contact %><br>
+    <%= f.text_field :medium, class:"form-control" %>
     <%= f.label :summary %><br>
-    <%= f.text_area :summary %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.text_area :summary, class:"form-control" %><br />
+    <% if !@attempt.job %>
+      <%= f.text_field :job_id, value: params[:job_id], class:"form-control" %>
+    <% else %>
+      <%= f.text_field :job_id, value: @attempt.job_id , class:"form-control" %>
+    <% end %>
+
+    <%= f.submit "Submit", class:"btn btn-success" %>
 <% end %>

@@ -1,8 +1,12 @@
 module HonchosHelper
 
-  def user_kahunas(company)
+  def user_kahunas
+    companies = []
+    current_user.jobs.each do |j|
+      companies << j.company
+    end
     kahunas = []
-    company.each do |c|
+    companies.each do |c|
       kahunas << Honcho.find_by(company_id: c)
     end
     return kahunas

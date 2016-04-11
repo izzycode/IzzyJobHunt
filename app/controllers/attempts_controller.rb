@@ -28,7 +28,7 @@ class AttemptsController < ApplicationController
 
     respond_to do |format|
       if @attempt.save
-        format.html { redirect_to @attempt, notice: 'Attempt was successfully created.' }
+        format.html { redirect_to current_user, notice: 'Attempt was successfully created.' }
         format.json { render :show, status: :created, location: @attempt }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class AttemptsController < ApplicationController
   def update
     respond_to do |format|
       if @attempt.update(attempt_params)
-        format.html { redirect_to @attempt, notice: 'Attempt was successfully updated.' }
+        format.html { redirect_to current_user, notice: 'Attempt was successfully updated.' }
         format.json { render :show, status: :ok, location: @attempt }
       else
         format.html { render :edit }
@@ -69,6 +69,6 @@ class AttemptsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attempt_params
-      params.require(:attempt).permit(:date, :medium, :summary)
+      params.require(:attempt).permit(:date, :medium, :summary, :job_id)
     end
 end

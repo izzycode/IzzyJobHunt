@@ -42,7 +42,7 @@ class HonchosController < ApplicationController
   def update
     respond_to do |format|
       if @honcho.update(honcho_params)
-        format.html { redirect_to @honcho, notice: 'Honcho was successfully updated.' }
+        format.html { redirect_to current_user, notice: 'Honcho was successfully updated.' }
         format.json { render :show, status: :ok, location: @honcho }
       else
         format.html { render :edit }
