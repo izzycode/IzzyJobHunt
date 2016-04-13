@@ -46,15 +46,17 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="#">IzzyJobHunt</a>
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav">
-            <li><%= link_to "New Job", new_job_path %></li>
-            <li><%= link_to "New Company", new_company_path %></li>
+        <% if logged_in? %>
+          <div class="navbar-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav">
+              <li><%= link_to "New Job", new_job_path %></li>
+              <li><%= link_to "New Company", new_company_path %></li>
 
-            <li><%= link_to "Archived", jobs_path(archived: true) %></li>
+              <li><%= link_to "Archived", jobs_path(archived: true) %></li>
 
-          </ul>
-        </div>
+            </ul>
+          </div>
+        <% end %>
       </div>
     </div>
 
