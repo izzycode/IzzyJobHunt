@@ -14,5 +14,4 @@
 
 
 *.txt
-/config/secrets.yml
 /db/seeds.rb
