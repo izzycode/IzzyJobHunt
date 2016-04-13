@@ -9,8 +9,8 @@
           <%= link_to "Go to Job posting", job.web_address, class:"btn btn-sm btn-default" %>
           <%= link_to "Edit", edit_job_path(job), class:"btn btn-xs btn-warning" %>
         </h4>
-          <%= form_for job do |f| %>
-            <% f.text_field :archived, value: true %>
+          <%= form_for( job, url: job_path(job), html: { method: :patch } ) do |f| %>
+            <%= f.hidden_field :archived, value: true %>
             <%= f.submit "Send to Archive", class:"btn btn-sm btn-default" %>
           <% end %>
 
