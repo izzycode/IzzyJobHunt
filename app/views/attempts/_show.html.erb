@@ -1,15 +1,35 @@
+<!-- Modal -->
+<div class="modal fade" id="myModal<%= i %><%= attempt.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Title Here</h4>
+        </div>
+        <div class="modal-body">
 
-<p>
-  <strong>Date:</strong>
-  <%= attempt.date.strftime("%m/%d/%Y at %I:%M%p") %>
-</p>
+          <p>
+            <strong>Date:</strong>
+            <%= attempt.date.strftime("%m/%d/%Y at %I:%M%p") %>
+          </p>
 
-<p>
-  <strong>Medium:</strong>
-  <%= attempt.medium %>
-</p>
+          <p>
+            <strong>Medium:</strong>
+            <%= attempt.medium %>
+          </p>
 
-<p>
-  <strong>Summary:</strong>
-  <%= attempt.summary %>
-</p>
+          <p>
+            <strong>Summary:</strong>
+            <%= attempt.summary %>
+          </p>
+
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= link_to 'Edit/Update', edit_attempt_path(attempt), class:"btn btn-default"%>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->

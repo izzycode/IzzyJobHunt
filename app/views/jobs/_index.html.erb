@@ -37,14 +37,13 @@
             <% end %>
             <!-- Honchos -->
 
-            <!-- Attempts -->
+            <!-- Attempts start-->
             <h4><strong>Attempts:</strong></h4>
             <%= link_to "Follow Up", new_attempt_path(job_id: job.id), class:"btn btn-xs btn-warning" %>
             <% if  any_job_attempts?(job) %>
               <%= render 'attempts/index', job: job, i: i %>
-            <% else %>
             <% end %>
-            <!-- Attempts -->
+            <!-- Attempts end-->
 
           <% else %>
             <%= render 'companies/index', job: job, i: i%>
