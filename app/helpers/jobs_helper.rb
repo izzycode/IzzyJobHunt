@@ -4,6 +4,6 @@ module JobsHelper
   end
 
   def current_jobs
-    Job.where(archived: false)
+    Job.where(archived: false, user_id: current_user.id)
   end
 end
