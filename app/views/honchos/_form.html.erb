@@ -23,7 +23,11 @@
   <%= f.text_area :notes, class:"form-control" %>
   <%= f.label :useful_links %>
   <%= f.text_area :links, class:"form-control" %>
-  <%= f.text_field :company_id, value: params[:company_id] %>
+  <% if !params[:id].nil? %>
+    <%= f.text_field :company_id, value: params[:id] %>
+  <% else %>
+    <%= f.text_field :company_id, value: params[:company_id] %>
+  <% end %>
 
   <br />
   <%= f.submit "Submit", class:"btn btn-success" %>
