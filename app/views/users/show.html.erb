@@ -1,6 +1,6 @@
-<h2>My <%= current_user.jobs.count %>/<%= user_kahunas.count %>s</h2>
+<h2>My <%= this_many_current_jobs %> / <%= user_current_kahunas.count %>s</h2>
 
-<%= link_to "New Job", new_job_path, class:"btn btn-info" %>
-<%= link_to "New Company", new_company_path, class:"btn btn-info" %>
+<%#= link_to "New Job", new_job_path, class:"btn btn-info" %>
+<%#= link_to "New Company", new_company_path, class:"btn btn-info" %>
 
 <%= render 'jobs/index' %>

@@ -1,15 +1,16 @@
 module HonchosHelper
 
-  def user_kahunas
+  def user_current_kahunas
+    current_user_jobs = Job.where(user_id: current_user.id, archived: false)
     companies = []
-    current_user.jobs.each do |j|
+    current_user_jobs.each do |j|
       companies << j.company
     end
     kahunas = []
     companies.each do |c|
-      kahunas << Honcho.find_by(company_id: c)
+      kahunas << c.honchos
     end
-    return kahunas
+    kahunas
   end
 
   def any_company_kahunas?(company)

@@ -37,6 +37,7 @@ class JobsController < ApplicationController
     end
   end
 
+
   # PATCH/PUT /jobs/1
   # PATCH/PUT /jobs/1.json
   def update
@@ -69,6 +70,6 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:position, :web_address, :user_id, :company_id)
+      params.require(:job).permit(:position, :web_address, :user_id, :company_id, :archived)
     end
 end

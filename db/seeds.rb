@@ -14,22 +14,22 @@ Company.create!([
   {name: "HappyRus", address: "nowhere to be found", main_phone: "", useful_links: "", notes: ""}
 ])
 Honcho.create!([
-  {name: "Mr C", position: "Know it All", phone_number: "305 555 5555", email: "", notes: "", links: "", company_id: 43},
-  {name: "Prince Charming", position: "his own", phone_number: nil, email: nil, notes: nil, links: nil, company_id: 43},
-  {name: "Snake Charmer", position: "untouchable", phone_number: nil, email: nil, notes: nil, links: nil, company_id: 43},
-  {name: "BigBoy", position: "master", phone_number: "", email: "", notes: "", links: "", company_id: 41},
-  {name: "BigLove", position: "top", phone_number: "", email: "", notes: "just can't get enough", links: "", company_id: 41},
-  {name: "Achuchita", position: "bolseada", phone_number: "", email: "", notes: "", links: "", company_id: 42},
-  {name: "Mr.D", position: "underwhelming", phone_number: "786 555 5555", email: "", notes: "", links: "", company_id: 40},
-  {name: "Sonny Boy", position: "dreamy", phone_number: "", email: "", notes: "", links: "", company_id: 40}
+  {name: "Mr C", position: "Know it All", phone_number: "305 555 5555", email: "", notes: "", links: "", company_id: 4},
+  {name: "Prince Charming", position: "his own", phone_number: nil, email: nil, notes: nil, links: nil, company_id: 3},
+  {name: "Snake Charmer", position: "untouchable", phone_number: nil, email: nil, notes: nil, links: nil, company_id: 3},
+  {name: "BigBoy", position: "master", phone_number: "", email: "", notes: "", links: "", company_id: 4},
+  {name: "BigLove", position: "top", phone_number: "", email: "", notes: "just can't get enough", links: "", company_id: 1},
+  {name: "Achuchita", position: "bolseada", phone_number: "", email: "", notes: "", links: "", company_id: 2},
+  {name: "Mr.D", position: "underwhelming", phone_number: "786 555 5555", email: "", notes: "", links: "", company_id: 4},
+  {name: "Sonny Boy", position: "dreamy", phone_number: "", email: "", notes: "", links: "", company_id: 2}
 ])
 Job.create!([
-  {position: "plasterer", web_address: "https://www.molikejobdescription.com", user_id: 2, company_id: 40},
-  {position: "top", web_address: "https://www.myfavoriteones.com", user_id: 2, company_id: 41},
-  {position: "Stand In", web_address: "https://www.aholynumberofyears.com", user_id: 2, company_id: 40},
-  {position: "\"handy\" man", web_address: "https://www.bestjobever.com", user_id: 2, company_id: 41},
+  {position: "plasterer", web_address: "https://www.molikejobdescription.com", user_id: 2, company_id: 4},
+  {position: "top", web_address: "https://www.myfavoriteones.com", user_id: 2, company_id: 4},
+  {position: "Stand In", web_address: "https://www.aholynumberofyears.com", user_id: 2, company_id: 1},
+  {position: "\"handy\" man", web_address: "https://www.bestjobever.com", user_id: 2, company_id: 1},
   {position: "Senior Penetration Tester", web_address: "https://www.mydreamjob.com", user_id: 2, company_id: nil},
-  {position: "carretillero", web_address: "https://www.yesiwentthere.com", user_id: 2, company_id: 43},
+  {position: "carretillero", web_address: "https://www.yesiwentthere.com", user_id: 2, company_id: 3},
   {position: "Jack", web_address: "https://jackofalltrades.com", user_id: 2, company_id: nil}
 ])
 User.create!([

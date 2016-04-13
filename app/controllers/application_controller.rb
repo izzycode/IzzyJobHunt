@@ -5,4 +5,5 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include HonchosHelper
   include AttemptsHelper
+  include JobsHelper
 end
