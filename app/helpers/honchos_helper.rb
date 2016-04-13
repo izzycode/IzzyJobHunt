@@ -4,12 +4,14 @@ module HonchosHelper
     current_user_jobs = Job.where(user_id: current_user.id, archived: false)
     companies = []
     current_user_jobs.each do |j|
-      companies << j.company.id
+      !j.company.id.nil? ? companies << j.company.id
     end
     kahunas = []
     companies.uniq!
-    companies.each do |c|
-      kahunas << Honcho.where(company_id: c)
+    if companies.length > 0
+      companies.each do |c|
+        kahunas << Honcho.where(company_id: c)
+      end
     end
     kahunas.flatten
   end

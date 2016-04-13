@@ -6,4 +6,6 @@ class ApplicationController < ActionController::Base
   include HonchosHelper
   include AttemptsHelper
   include JobsHelper
+  include ApplicationHelper
+
 end
