@@ -4,7 +4,14 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = Job.all
+    if params[:archived] == "true"
+      p "<>"*44
+      p params
+      @jobs = Job.where(archived: true)
+      render '/jobs/archives'
+    else
+      @jobs = Job.all
+    end
   end
 
   # GET /jobs/1
@@ -57,7 +64,7 @@ class JobsController < ApplicationController
   def destroy
     @job.destroy
     respond_to do |format|
-      format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
+      format.html { redirect_to current_user, notice: 'Job was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

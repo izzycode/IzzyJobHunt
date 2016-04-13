@@ -1,0 +1,22 @@
+<h1>Archived jobs</h1>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Position</th>
+      <th>Company</th>
+      <th>Created</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= job.position %></td>
+        <td><%= job.company.nil? ? "undefined" : job.company.name %></td>
+        <td><%= time_ago_in_words(job.created_at) %> ago</td>
+        <td><%= link_to 'Delete', job, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-xs btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

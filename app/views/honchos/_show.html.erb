@@ -1,0 +1,49 @@
+<!-- Modal -->
+<div class="modal fade" id="myModal<%= i %><%= honcho.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><%= honcho.name %></h4>
+        </div>
+        <div class="modal-body">
+
+          <strong>Name:</strong>
+          <%= honcho.name %>
+        </p>
+
+        <p>
+          <strong>Position:</strong>
+          <%= honcho.position %>
+        </p>
+
+        <p>
+          <strong>Phone number:</strong>
+          <%= honcho.phone_number %>
+        </p>
+
+        <p>
+          <strong>Email:</strong>
+          <%= honcho.email %>
+        </p>
+
+        <p>
+          <strong>Notes:</strong>
+          <%= honcho.notes %>
+        </p>
+
+        <p>
+          <strong>Links:</strong>
+          <%= honcho.links %>
+        </p>
+
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= link_to 'Edit/Update', edit_honcho_path(honcho), class:"btn btn-default" %>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
