@@ -24,9 +24,9 @@
   <%= f.label :useful_links %>
   <%= f.text_area :links, class:"form-control" %>
   <% if !params[:id].nil? %>
-    <%= f.text_field :company_id, value: params[:id] %>
+    <%= f.hidden_field :company_id, value: params[:id] %>
   <% else %>
-    <%= f.text_field :company_id, value: params[:company_id] %>
+    <%= f.hidden_field :company_id, value: params[:company_id] %>
   <% end %>
 
   <br />
