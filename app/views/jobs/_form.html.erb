@@ -16,7 +16,7 @@
   <%= f.text_field :position, class:"form-control" %>
   <%= f.label :web_address %>
   <%= f.text_field :web_address, class:"form-control" %>
-  <%= f.text_field :user_id, value: current_user.id, class:"form-control" %>
+  <%= f.hidden_field :user_id, value: current_user.id, class:"form-control" %>
 
   <br />
   <br />

@@ -35,6 +35,7 @@ gem 'hirb'
 gem 'awesome_print'
 gem "twitter-bootstrap-rails"
 gem 'seed_dump'
+gem 'rails-erd'
 
 
 gem 'rails_12factor', group: :production
