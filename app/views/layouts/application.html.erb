@@ -50,8 +50,9 @@
           <div class="navbar-collapse collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav">
               <li><%= link_to "New Job", new_job_path %></li>
-              <li><%= link_to "New Company", new_company_path %></li>
-
+              <% if any_companies? %>
+                <li><%= link_to "New Company", new_company_path %></li>
+              <% end %>
               <li><%= link_to "Archived", jobs_path(archived: true) %></li>
 
             </ul>
