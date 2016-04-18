@@ -7,6 +7,8 @@ class CreateCompanies < ActiveRecord::Migration
       t.text :useful_links
       t.text :notes
 
+      t.belongs_to :user, index: true
+
       t.timestamps null: false
     end
   end

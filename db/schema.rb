@@ -33,9 +33,12 @@ ActiveRecord::Schema.define(version: 20160331203505) do
     t.string   "main_phone"
     t.text     "useful_links"
     t.text     "notes"
+    t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
+
+  add_index "companies", ["user_id"], name: "index_companies_on_user_id", using: :btree
 
   create_table "honchos", force: :cascade do |t|
     t.string   "name"

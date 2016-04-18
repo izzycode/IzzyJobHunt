@@ -7,5 +7,5 @@ class ApplicationController < ActionController::Base
   include AttemptsHelper
   include JobsHelper
   include ApplicationHelper
-
+  include CompaniesHelper
 end

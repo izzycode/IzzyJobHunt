@@ -7,7 +7,7 @@ class JobsController < ApplicationController
     if params[:archived] == "true"
       p "<>"*44
       p params
-      @jobs = Job.where(archived: true)
+      @jobs = Job.where(archived: true, user_id: current_user.id)
       render '/jobs/archives'
     else
       @jobs = Job.all

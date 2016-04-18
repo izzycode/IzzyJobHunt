@@ -49,11 +49,12 @@
         <% if logged_in? %>
           <div class="navbar-collapse collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav">
-              <li><%= link_to "New Job", new_job_path %></li>
-              <% if any_companies? %>
-                <li><%= link_to "New Company", new_company_path %></li>
+              <li><%= link_to "New Job", new_job_path(current_user.id) %></li>
+              <% if any_archived_jobs? %>
+                <li><%= link_to "Archived", jobs_path(current_user.id, archived: true) %></li>
               <% end %>
-              <li><%= link_to "Archived", jobs_path(archived: true) %></li>
+              <li><%= link_to "New Company", new_company_path(current_user.id) %></li>
+
 
             </ul>
           </div>
