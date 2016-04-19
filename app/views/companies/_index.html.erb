@@ -1,5 +1,5 @@
 <div id="job<%=i%>">
   <%= form_for job do |f| %>
-    <%= f.select "company_id", user_companies.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}, {class:"form-control", onchange:'this.form.submit();'} %>
+    <%= f.select "company_id", current_user.companies.collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}, {class:"form-control", onchange:'this.form.submit();'} %>
   <% end %>
 </div>
