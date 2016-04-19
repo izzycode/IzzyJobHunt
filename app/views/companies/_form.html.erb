@@ -21,6 +21,7 @@
   <%= f.text_area :useful_links, class:"form-control" %>
   <%= f.label :notes %><br>
   <%= f.text_area :notes, class:"form-control" %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
 
   <br />
   <%= f.submit "Submit", class:"btn btn-success" %>
