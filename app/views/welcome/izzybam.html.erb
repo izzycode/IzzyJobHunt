@@ -11,3 +11,13 @@
 
 <br />
 <%= link_to "Sign Up", new_user_path, class:'btn btn-primary' %>
+
+<%= link_to "Sign in with LinkedIn", "https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id="+ENV['LINKEDIN_ID']+"&redirect_uri=https%3A%2F%2Flocalhost:3000&state="+ENV['CSRF']+"&scope+r_emailaddress" %>
+
+<!-- /auth/:provider/callback -->
+
+<!-- This is the response after sign in -->
+<!-- https://localhost:3000/?code=AQSWq9n9wCoISSnPrWAThhq2Hz56Z5LChlpnaECFrNgfeilC2hZqVadWhznb28xqLbkApvzgjDu8xOShzo6MWXVuKIKADV3XFwyNQVkL-nu5EdTJokY&state=fe0decd16c240274b -->
+<!-- https://localhost:3000/?code=AQTgG35rsjlwdEvpC7oBUqGr65vG1obgez7hryGntSt15sHuEqs_bmPQxgWa8X3cp-1sV8FZ3S3llJTi9z9WPywR7UgBxZlrLHKJDz9rFmG1XeMV5sc&state=fe0decd16c240274b -->
+
+<!--  -->

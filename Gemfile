@@ -37,8 +37,9 @@ gem "twitter-bootstrap-rails"
 gem 'seed_dump'
 gem 'rails-erd'
 gem 'dotenv-rails', :groups => [:development, :test]
-
-
+gem 'omniauth-linkedin', '~> 0.2.0'
+gem 'oauth2', '~> 1.1'
+gem 'omniauth-linkedin-oauth2'
 
 gem 'rails_12factor', group: :production
 
