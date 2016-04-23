@@ -15,5 +15,7 @@
 
 *.txt
 /db/seeds.rb
+
 /db/seeds1.rb
+
 .env
