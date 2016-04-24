@@ -7,10 +7,7 @@ module ApplicationHelper
     end
   end
 
-  def mail_ready
-    if condition
-      #ask if you want to mail / personalize mail to hiring partner director
-      ten_thirty_full #call UserMailer method
-    end
+  def mail_ready? #checks if 10/30 is full
+
   end
 end
