@@ -8,4 +8,5 @@ class ApplicationController < ActionController::Base
   include JobsHelper
   include ApplicationHelper
   include CompaniesHelper
+  include UsersHelper
 end

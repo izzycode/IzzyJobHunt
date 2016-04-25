@@ -12,6 +12,11 @@ class UsersController < ApplicationController
   def show
     @company = Company.new
     @job = Job.new
+    p "<>"*47
+    p check_to_mail?
+    if check_to_mail?
+      flash[:info] = "Congratulations! Your are ready to submit your 10/30."
+    end
   end
 
   # GET /users/new
