@@ -57,7 +57,8 @@
                 <li><%= link_to "New Company", new_company_path(current_user.id) %></li>
               <% end %>
               <% if check_to_mail? %>
-                <li><a href="#">Submit your 10/30</a></li>
+                <li><a href="#">Submit your 10/30#Use javascript to submit</a></li>
+
               <% end %>
 
             </ul>
@@ -68,14 +69,14 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-9">
+        <div class="col-lg-8">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
 
         <!--  Side bar displays user info when signed in   -->
         <% if logged_in? %>
-          <div class="col-lg-3">
+          <div class="col-lg-4">
             <div class="well sidebar-nav">
               <h3><%= link_to "#{current_user.name}'s Page", current_user %></h3>
               <ul class="nav nav-list">
@@ -85,6 +86,7 @@
               <%= link_to "Edit", edit_user_path(current_user), class:"btn btn-xs btn-primary" %>
             </div><!--/.well -->
           </div><!--/span-->
+          <%= render 'users/search' %>
         <% end %>
       </div><!--/row-->
 
