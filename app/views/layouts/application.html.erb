@@ -77,11 +77,14 @@
         <!--  Side bar displays user info when signed in   -->
         <% if logged_in? %>
           <div class="col-lg-4">
-            <div class="well sidebar-nav">
+            <div class="well sidebar-nav ">
               <h3><%= link_to "#{current_user.name}'s Page", current_user %></h3>
               <ul class="nav nav-list">
                 <li class="nav-header"><%= current_user.email  %></li><br />
               </ul>
+              <br />
+              <%= @quote %>
+
               <%= button_to "Log Out", logout_path, class:"btn btn-xs btn-danger"  %>
               <%= link_to "Edit", edit_user_path(current_user), class:"btn btn-xs btn-primary" %>
             </div><!--/.well -->

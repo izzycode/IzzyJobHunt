@@ -22,6 +22,11 @@ class UsersController < ApplicationController
   def search
   end
 
+  # def iframe_action
+  #   response.headers["X-FRAME-OPTIONS"] = "ALLOW-FROM http://www.indeed.com/jobs"
+  #   render_something
+  # end
+
   # GET /users/new
   def new
     @user = User.new

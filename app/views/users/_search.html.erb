@@ -1,38 +1,15 @@
 
-<script type='text/javascript'>
-  var ind_pub = "<%= ENV['INDEED_NUMBER'] %>";
-  var ind_el = 'indJobContent';
-  var ind_pf = '';
-  var ind_q = 'Web Developer';
-  var ind_l = 'south florida';
-  var ind_chnl = 'web';
-  var ind_n = 6;
-  var ind_d = 'http://www.indeed.com';
-  var ind_t = 50;
-  var ind_c = 30;
-  var ind_pgn = 1;
-  var ind_pgnCnt = 3;
-</script>
 <script type='text/javascript' src='http://www.indeed.com/ads/jobroll-widget-v3.js'></script>
 
 <div class="col-lg-4">
   <div class="well sidebar-nav">
-    <h3>Job Search<%= ENV['INDEED_NUMBER'] %></h3>
+    <h3>Job Search</h3>
 
     <!-- jobs from indeed goes here -->
     <div id='indJobContent' class=""></div>
 
     <div id='indeed_search_wrapper'>
-      <script type='text/javascript'>
-        function clearDefaults() {
-          var formInputs = document.getElementById('indeed_jobform').elements;
-          for(var i = 0; i < formInputs.length; i++) {
-            if(formInputs[i].value == 'title, keywords' || formInputs[i].value == 'city, state, or zip') {
-            formInputs[i].value = '';
-            }
-          }
-        }
-      </script>
+
       <!-- add modal to open external link internally -->
       <form onsubmit='clearDefaults();' method='get' action='http://www.indeed.com/jobs' id='indeed_jobform' target="_new" class="form-horizontal">
         <div id="qc"><label class="control-label">What:</label><input type='text' onfocus='this.value=""' placeholder='title, keywords' name='q' id='q' class="form-control"></div>
@@ -50,3 +27,5 @@
     </div>
   </div><!--/.well -->
 </div>
+
+<!-- <iframe src="http://www.indeed.com/" width="100%" height="100px">error!</iframe> -->

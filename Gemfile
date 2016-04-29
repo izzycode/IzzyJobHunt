@@ -36,7 +36,9 @@ gem "twitter-bootstrap-rails"
 gem 'seed_dump'
 gem 'rails-erd'
 
-
+gem 'dotenv-rails', :groups => [:development, :test]
+gem 'httparty'
+gem 'json'
 
 gem 'rails_12factor', group: :production
 
