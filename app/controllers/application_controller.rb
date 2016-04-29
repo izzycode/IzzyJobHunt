@@ -9,4 +9,11 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
   include CompaniesHelper
   include UsersHelper
+
+
+
+
+
+
+  
 end
