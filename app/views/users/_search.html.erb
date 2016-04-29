@@ -1,61 +1,11 @@
-<style type='text/css'>
-  #indJobContent{padding-bottom: 5px;}
-  #indJobContent .company_location{font-size: 11px;overflow: hidden;display:block;}
-  #indJobContent.wide .job{display:block;float:left;margin-right: 5px;width: 135px;overflow: hidden}
-  #indeed_widget_header{font-size:18px; padding-bottom: 5px; }
-  #indeed_search_wrapper{clear: both;font-size: 12px;margin-top: 0px;padding-top: 2px;}
-  #indeed_search_wrapper label{font-size: 12px;line-height: inherit;text-align: left; margin-right: 5px;}
-  #indeed_search_wrapper input[type='text']{width: 100px; font-size: 11px; }#indeed_search_wrapper #qc{float:left;}
-  #indeed_search_wrapper #lc{float:right;}
-  #indeed_search_wrapper.stacked
-  #qc, #indeed_search_wrapper.stacked
-  #lc{float: none; clear: both;}
-  #indeed_search_wrapper.stacked input[type='text']{width: 150px;}
-  #indeed_search_wrapper.stacked label{display: block;padding-bottom: 5px;}
-  #indeed_search_footer{width:295px; padding-top: 5px; clear: both;}
-  #indeed_link{padding: 4px;right: 5px;clear: both;font-size: 11px; }
-  #indeed_link a{text-decoration: none;}
-  #results .job{padding: 1px 0px;}
-  #pagination { clear: both; }</style><style type='text/css'>
-  #indeed_link a{ color: #482EA6;}
-  #indJobContent, #indeed_search_wrapper{ border-top: 1px solid #3B5FA3; }
-  #indJobContent a { color: #B01558; }
-  #indeed_widget_header{ color: #3A3F87; }
-</style>
-<script type='text/javascript'>
-  var ind_pub = '3380214054581298';
-  var ind_el = 'indJobContent';
-  var ind_pf = '';
-  var ind_q = 'Web Developer';
-  var ind_l = 'south florida';
-  var ind_chnl = 'web';
-  var ind_n = 6;
-  var ind_d = 'http://www.indeed.com';
-  var ind_t = 50;
-  var ind_c = 30;
-  var ind_pgn = 1;
-  var ind_pgnCnt = 3;
-</script>
-<script type='text/javascript' src='http://www.indeed.com/ads/jobroll-widget-v3.js'></script>
-
 <div class="col-lg-4">
   <div class="well sidebar-nav">
     <h3>Job Search</h3>
 
     <!-- jobs from indeed goes here -->
-    <div id='indJobContent' class=""></div>
+    <!-- <div id='indJobContent' class=""></div> -->
 
     <div id='indeed_search_wrapper'>
-      <script type='text/javascript'>
-        function clearDefaults() {
-          var formInputs = document.getElementById('indeed_jobform').elements;
-          for(var i = 0; i < formInputs.length; i++) {
-            if(formInputs[i].value == 'title, keywords' || formInputs[i].value == 'city, state, or zip') {
-            formInputs[i].value = '';
-            }
-          }
-        }
-      </script>
       <!-- add modal to open external link internally -->
       <form onsubmit='clearDefaults();' method='get' action='http://www.indeed.com/jobs' id='indeed_jobform' target="_new" class="form-horizontal">
         <div id="qc"><label class="control-label">What:</label><input type='text' onfocus='this.value=""' placeholder='title, keywords' name='q' id='q' class="form-control"></div>
