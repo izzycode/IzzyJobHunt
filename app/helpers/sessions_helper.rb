@@ -2,12 +2,6 @@ module SessionsHelper
 
   def log_in(user)
     session[:user_id] = user.id
-
-    quote = HTTParty.get "http://quotes.rest/qod.json?category=inspire"
-    result = JSON.parse quote.body
-    result = result["contents"]["quotes"][0]
-    @quote = result["quote"]
-    @quote_image = result["background"]
   end
 
   def current_user
