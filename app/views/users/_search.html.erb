@@ -1,0 +1,31 @@
+
+<script type='text/javascript' src='http://www.indeed.com/ads/jobroll-widget-v3.js'></script>
+
+<div class="col-lg-4">
+  <div class="well sidebar-nav">
+    <h3>Job Search</h3>
+
+    <!-- jobs from indeed goes here -->
+    <div id='indJobContent' class=""></div>
+
+    <div id='indeed_search_wrapper'>
+
+      <!-- add modal to open external link internally -->
+      <form onsubmit='clearDefaults();' method='get' action='http://www.indeed.com/jobs' id='indeed_jobform' target="_new" class="form-horizontal">
+        <div id="qc"><label class="control-label">What:</label><input type='text' onfocus='this.value=""' placeholder='title, keywords' name='q' id='q' class="form-control"></div>
+        <div id="lc"><label class="control-label">Where:</label><input type='text' onfocus='this.value=""' placeholder='city, state, or zip' name='l' id='l' class="form-control"></div>
+        <div id='indeed_search_footer'>
+        <div style='float:left'><input type='submit' value='Find Jobs' class='btn btn-sm btn-default'></div>
+        </div>
+        <input type='hidden' name='indpubnum' id='indpubnum' value='3380214054581298'>
+      </form>
+    </div>
+
+    <div id='indeed_link'>
+      <a title="Job Search" href="http://www.indeed.com/" target="_new">jobs by <img alt=Indeed src='http://www.indeed.com/p/jobsearch.gif' style='border: 0;vertical-align: bottom;'>
+      </a>
+    </div>
+  </div><!--/.well -->
+</div>
+
+<!-- <iframe src="http://www.indeed.com/" width="100%" height="100px">error!</iframe> -->

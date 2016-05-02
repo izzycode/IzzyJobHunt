@@ -13,6 +13,13 @@ class SessionsController < ApplicationController
       flash.now[:danger]="Invalid email/password combination"
       render 'welcome/izzybam'
     end
+
+    quote = HTTParty.get "http://quotes.rest/qod.json?category=inspire"
+    result = (JSON.parse quote.body)["contents"]["quotes"][0]
+    session[:quote] = result["quote"]
+    session[:image] = result["background"]
+
+
   end
 
   def destroy

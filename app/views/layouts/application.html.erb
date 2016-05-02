@@ -45,7 +45,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand muted-text" href="<%= home_page %>"><h4>Izzy'sJobHunt</h4></a>
+        <a class="navbar-brand muted-text" href="<%= !current_user.nil? ? user_path(current_user) : "#" %>"><h4>Izzy'sJobHunt</h4></a>
         <% if logged_in? %>
           <div class="navbar-collapse collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav">
@@ -56,6 +56,10 @@
               <% if !current_jobs.empty? %>
                 <li><%= link_to "New Company", new_company_path(current_user.id) %></li>
               <% end %>
+              <% if check_to_mail? %>
+                <li><a href="#">Submit your 10/30#Use javascript to submit</a></li>
+
+              <% end %>
 
             </ul>
           </div>
@@ -65,23 +69,28 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-9">
+        <div class="col-lg-8">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
 
         <!--  Side bar displays user info when signed in   -->
         <% if logged_in? %>
-          <div class="col-lg-3">
-            <div class="well sidebar-nav">
+          <div class="col-lg-4">
+            <div class="well sidebar-nav ">
               <h3><%= link_to "#{current_user.name}'s Page", current_user %></h3>
               <ul class="nav nav-list">
                 <li class="nav-header"><%= current_user.email  %></li><br />
               </ul>
+              <br />
+              
+              <%= @quote %>
+
               <%= button_to "Log Out", logout_path, class:"btn btn-xs btn-danger"  %>
               <%= link_to "Edit", edit_user_path(current_user), class:"btn btn-xs btn-primary" %>
             </div><!--/.well -->
           </div><!--/span-->
+          <%= render 'users/search' %>
         <% end %>
       </div><!--/row-->
 
