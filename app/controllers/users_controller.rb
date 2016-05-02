@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   # def iframe_action
-  #   response.headers["X-FRAME-OPTIONS"] = "ALLOW-FROM http://www.indeed.com/jobs"
+  #   response.headers["X-FRAME-OPTIONS"] = "ALLOW-FROM https://www.indeed.com/jobs"
   #   render_something
   # end
 
