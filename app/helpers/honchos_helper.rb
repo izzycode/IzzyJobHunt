@@ -16,8 +16,14 @@ module HonchosHelper
 
   def user_current_kahunas
     kahunas = []
-    current_user.companies.each do |comp|
-      kahunas << Honcho.where(company_id: comp.id)
+    companies = []
+    current_user.jobs.each do |job|
+      if job.archived == false
+        companies << job.company_id
+      end
+    end
+    companies.each do |comp|
+      kahunas << Honcho.where(company_id: comp)
     end
 
     kahunas.flatten

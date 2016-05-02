@@ -5,12 +5,10 @@ class JobsController < ApplicationController
   # GET /jobs.json
   def index
     if params[:archived] == "true"
-      p "<>"*44
-      p params
       @jobs = Job.where(archived: true, user_id: current_user.id)
       render '/jobs/archives'
     else
-      @jobs = Job.all
+      @jobs = current_user.jobs
     end
   end
 
@@ -32,6 +30,8 @@ class JobsController < ApplicationController
   # POST /jobs.json
   def create
     @job = Job.new(job_params)
+
+    @job.position = get_job_title(@job.web_address)
 
     respond_to do |format|
       if @job.save
