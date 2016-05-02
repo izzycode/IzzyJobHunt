@@ -76,16 +76,15 @@
 
         <!--  Side bar displays user info when signed in   -->
         <% if logged_in? %>
-          <div class="col-lg-4">
-            <div class="well sidebar-nav ">
-              <h3><%= link_to "#{current_user.name}'s Page", current_user %></h3>
-              <ul class="nav nav-list">
-                <li class="nav-header"><%= current_user.email  %></li><br />
-              </ul>
-              <br />
-              
-              <%= @quote %>
-
+          <div class="col-lg-4" >
+            <div class="well sidebar-nav "  style="background: url(<%= session[:image] %>); background-size:cover;">
+              <div id="side-info">
+                <h3><%= link_to "#{current_user.name}'s Page", current_user %></h3>
+                <ul class="nav nav-list">
+                  <li class="nav-header"><%= current_user.email  %></li><br />
+                </ul>
+                <q><%= session[:quote] %></q>
+              </div>
               <%= button_to "Log Out", logout_path, class:"btn btn-xs btn-danger"  %>
               <%= link_to "Edit", edit_user_path(current_user), class:"btn btn-xs btn-primary" %>
             </div><!--/.well -->
@@ -97,6 +96,7 @@
       <footer>
         <p>&copy; Izzy's Code 2016</p>
       </footer>
+      <%= console %>
 
     </div> <!-- /container -->
 
