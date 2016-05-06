@@ -1,5 +1,6 @@
 class HonchosController < ApplicationController
   before_action :set_honcho, only: [:show, :edit, :update, :destroy]
+  before_filter :authorize
 
   # GET /honchos
   # GET /honchos.json

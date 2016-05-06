@@ -4,6 +4,8 @@ class SessionsController < ApplicationController
   end
 
   def create
+    byebug
+
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       @current_user ||= User.find_by(id: log_in(user))
@@ -26,5 +28,6 @@ class SessionsController < ApplicationController
     log_out if logged_in?
     redirect_to root_url
   end
+
 
 end
