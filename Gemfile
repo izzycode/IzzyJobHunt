@@ -34,7 +34,7 @@ gem 'bcrypt'
 gem 'hirb'
 gem "twitter-bootstrap-rails"
 gem 'dotenv-rails', :groups => [:development, :test]
-gem 'HTTParty'
+gem 'httparty'
 gem 'json'
 
 gem 'rails_12factor', group: :production

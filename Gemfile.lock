@@ -62,7 +62,7 @@ GEM
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hirb (0.7.3)
-    HTTParty (0.13.7)
+    httparty (0.13.7)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     i18n (0.7.0)
@@ -178,7 +178,7 @@ DEPENDENCIES
   byebug
   dotenv-rails
   hirb
-  HTTParty
+  httparty
   jbuilder (~> 2.0)
   jquery-rails
   json
