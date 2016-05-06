@@ -36,6 +36,9 @@ gem "twitter-bootstrap-rails"
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'httparty'
 gem 'json'
+gem 'indeed', '~> 0.1.2'
+gem 'yajl-ruby'
+gem 'rake'
 
 gem 'rails_12factor', group: :production
 
