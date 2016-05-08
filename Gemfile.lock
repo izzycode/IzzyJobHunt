@@ -191,7 +191,6 @@ DEPENDENCIES
   rails (= 4.2.6)
   rails-erd
   rails_12factor
-  rake
   sdoc (~> 0.4.0)
   seed_dump
   spring
@@ -199,7 +198,6 @@ DEPENDENCIES
   twitter-bootstrap-rails
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
-  yajl-ruby
 
 BUNDLED WITH
    1.11.2
