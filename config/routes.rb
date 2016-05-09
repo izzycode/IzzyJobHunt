@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   post 'logout', to: 'sessions#destroy'
 
   get 'job_search', to: 'users#search'
-
+  get 'mail_please', to: 'users#mail_please'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

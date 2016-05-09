@@ -57,8 +57,9 @@
                 <li><%= link_to "New Company", new_company_path(current_user.id) %></li>
               <% end %>
               <% if check_to_mail? %>
-                <li><a href="#" id="submit-email">Submit your 10/30#Use javascript to submit</a></li>
-            
+                <li>
+                  <%= link_to "Send Rita an email alert", mail_please_path, id:"submit-email"  %>
+                </li>
 
               <% end %>
 

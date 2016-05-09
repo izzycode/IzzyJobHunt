@@ -24,7 +24,8 @@ class UsersController < ApplicationController
   end
 
   def mail_please
-    ten_thirty_full(set_user)
+    UserMailer.ten_thirty_full(current_user).deliver
+    redirect_to @user, notice: 'Email sent!'
   end
 
   # def iframe_action
