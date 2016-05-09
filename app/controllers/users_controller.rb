@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :mailer]
   before_filter :authorize
 
   # GET /users
@@ -21,6 +21,10 @@ class UsersController < ApplicationController
   end
 
   def search
+  end
+
+  def mail_please
+    ten_thirty_full(set_user)
   end
 
   # def iframe_action
