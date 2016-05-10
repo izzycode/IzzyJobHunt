@@ -39,6 +39,7 @@
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
+
 @keyframes blink {
   from {
      color: white;

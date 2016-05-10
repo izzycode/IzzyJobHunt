@@ -11,5 +11,13 @@ module JobsHelper
     !Job.where(archived: true, user_id: current_user.id).empty?
   end
 
+  def grab_website
+  end
+
+  def grab_position
+  end
+
+  def grab_company
+  end
 
 end

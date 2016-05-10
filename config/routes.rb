@@ -14,9 +14,11 @@ Rails.application.routes.draw do
   root 'welcome#izzybam'
   post 'login', to: 'sessions#create'
   post 'logout', to: 'sessions#destroy'
+  post 'autofill', to: 'jobs#autofill'
 
   get 'job_search', to: 'users#search'
   get 'mail_please', to: 'users#mail_please'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

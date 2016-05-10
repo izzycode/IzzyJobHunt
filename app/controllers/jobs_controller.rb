@@ -18,6 +18,17 @@ class JobsController < ApplicationController
   def show
   end
 
+  def autofill
+    @job.web_address = grab_website
+    @job.position = grab_position
+    if company_present?
+      @company = Company.new(name: grab_company)
+      @job.company_id = @company.id
+    end
+
+    redirect_to new_job_path(@job,@company)
+  end
+
   # GET /jobs/new
   def new
     @job = Job.new
