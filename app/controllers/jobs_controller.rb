@@ -19,14 +19,39 @@ class JobsController < ApplicationController
   end
 
   def autofill
-    @job.web_address = grab_website
-    @job.position = grab_position
-    if company_present?
-      @company = Company.new(name: grab_company)
-      @job.company_id = @company.id
+    @job = Job.new(job_params)
+    response = HTTParty.get @job.web_address
+    noko = Nokogiri::HTML response.body
+    if @job.web_address.include?('indeed.com')
+      company = noko.xpath('//*[@id="job_header"]/span[1]').first.content
+      position = noko.xpath('//*[@id="job_header"]/b/font').first.content
+    elsif @job.web_address.include?('linkedin.com')
+      company = noko.xpath('//*[@id="top-card"]/div/div[1]/div[2]/h3[1]/a/span[1]').first.content
+      position = noko.xpath('//*[@id="top-card"]/div/div[1]/div[2]/div/div[1]/h1').first.content
+    elsif @job.web_address.include?('ziprecruiter.com')
+      company = noko.xpath('//*[@id="page-content-wrapper"]/div[2]/div[1]/div[2]/div/div/div/div/div[1]/div/h3/a[2]/span').first.content
+      position = noko.xpath('//*[@id="page-content-wrapper"]/div[2]/div[1]/div[2]/div/div/div/div/div[1]/h1').first.content
+    else
+      company = "Sorry, couldn't catch that."
+      position = "Sorry, couldn't catch that."
     end
 
-    redirect_to new_job_path(@job,@company)
+    p "<>"*47
+    p company
+    p position
+
+    @job.position = position
+    @company = Company.create(name:company)
+    @job.company_id = @company.id
+
+    render 'jobs/edit'
+    # @job.web_address = grab_website
+    # @job.position = grab_position
+    # if company_present?
+    #   @company = Company.new(name: grab_company)
+    #   @job.company_id = @company.id
+    # end
+
   end
 
   # GET /jobs/new

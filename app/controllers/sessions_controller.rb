@@ -15,11 +15,12 @@ class SessionsController < ApplicationController
       render 'welcome/izzybam'
     end
 
-    quote = HTTParty.get "//quotes.rest/qod.json?category=inspire"
-    result = (JSON.parse quote.body)["contents"]["quotes"][0]
-    session[:quote] = result["quote"]
-    session[:image] = result["background"]
-
+    if !Rails.env.development?
+      quote = HTTParty.get "//quotes.rest/qod.json?category=inspire"
+      result = (JSON.parse quote.body)["contents"]["quotes"][0]
+      session[:quote] = result["quote"]
+      session[:image] = result["background"]
+    end
 
   end
 

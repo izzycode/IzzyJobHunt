@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    
+
     <meta charset="utf-8">
     <meta https-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -80,13 +80,13 @@
         <!--  Side bar displays user info when signed in   -->
         <% if logged_in? %>
           <div class="col-lg-4" >
-            <div class="well sidebar-nav "  style="background: url(<%= session[:image] %>); background-size:cover;">
+            <div class="well sidebar-nav "  style="background: url(<%= !Rails.env.development? ? session[:image] : "" %>); background-size:cover;">
               <div id="side-info">
                 <h3><%= link_to "#{current_user.name}'s Page", current_user %></h3>
                 <ul class="nav nav-list">
                   <li class="nav-header"><%= current_user.email  %></li><br />
                 </ul>
-                <q><%= session[:quote] %></q>
+                <q><%= session[:quote] if !Rails.env.development? %></q>
               </div>
               <%= button_to "Log Out", logout_path, class:"btn btn-xs btn-danger"  %>
               <%= link_to "Edit", edit_user_path(current_user), class:"btn btn-xs btn-primary" %>
