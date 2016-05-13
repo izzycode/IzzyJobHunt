@@ -18,6 +18,10 @@ class JobsController < ApplicationController
   def show
   end
 
+response = HTTParty.get "https://www.linkedin.com/jobs2/view/145058546?refId=4708719741462986774658&trk=vsrp_jobs_res_name&trkInfo=VSRPsearchId%3A4708719741462986774658%2CVSRPtargetId%3A145058546%2CVSRPcmpt%3Aprimary"
+noko = Nokogiri::HTML response.body
+
+
   def autofill
     @job = Job.new(job_params)
     response = HTTParty.get @job.web_address
@@ -25,16 +29,18 @@ class JobsController < ApplicationController
     if @job.web_address.include?('indeed.com')
       company = noko.xpath('//*[@id="job_header"]/span[1]').first.content
       position = noko.xpath('//*[@id="job_header"]/b/font').first.content
-    elsif @job.web_address.include?('linkedin.com')
-      company = noko.xpath('//*[@id="top-card"]/div/div[1]/div[2]/h3[1]/a/span[1]').first.content
-      position = noko.xpath('//*[@id="top-card"]/div/div[1]/div[2]/div/div[1]/h1').first.content
+    elsif @job.web_address.include?('angel.io')
+      company = noko.xpath('//*[@id="top-card"]/div/div[1]/div[2]/h3[1]/a/span[1]').first
+      position = noko.css('.title').text
     elsif @job.web_address.include?('ziprecruiter.com')
-      company = noko.xpath('//*[@id="page-content-wrapper"]/div[2]/div[1]/div[2]/div/div/div/div/div[1]/div/h3/a[2]/span').first.content
-      position = noko.xpath('//*[@id="page-content-wrapper"]/div[2]/div[1]/div[2]/div/div/div/div/div[1]/h1').first.content
+      company = noko.css('.job_details_icon > span')
+      position = noko.css('.job_header h1').text
+      # position = noko.xpath('//*[@id="page-content-wrapper"]/div[2]/div[1]/div[2]/div/div/div/div/div[1]/h1').first.content
     else
       company = "Sorry, couldn't catch that."
       position = "Sorry, couldn't catch that."
     end
+
 
     p "<>"*47
     p company
@@ -43,14 +49,9 @@ class JobsController < ApplicationController
     @job.position = position
     @company = Company.create(name:company)
     @job.company_id = @company.id
+    @job.save
 
-    render 'jobs/edit'
-    # @job.web_address = grab_website
-    # @job.position = grab_position
-    # if company_present?
-    #   @company = Company.new(name: grab_company)
-    #   @job.company_id = @company.id
-    # end
+    redirect_to edit_job_path(@job), notice: 'Please verify the information obtained from the website.'
 
   end
 
