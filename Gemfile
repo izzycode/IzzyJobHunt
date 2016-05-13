@@ -36,9 +36,13 @@ gem "twitter-bootstrap-rails"
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'httparty'
 gem 'json'
-gem 'indeed', '~> 0.1.2'
-
 gem 'rails_12factor', group: :production
+
+#indeed authentication
+gem 'linkedin'
+gem 'omniauth'
+gem 'omniauth-linkedin-oauth2'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
