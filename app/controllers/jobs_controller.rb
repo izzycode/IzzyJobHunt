@@ -18,8 +18,7 @@ class JobsController < ApplicationController
   def show
   end
 
-response = HTTParty.get "https://www.linkedin.com/jobs2/view/145058546?refId=4708719741462986774658&trk=vsrp_jobs_res_name&trkInfo=VSRPsearchId%3A4708719741462986774658%2CVSRPtargetId%3A145058546%2CVSRPcmpt%3Aprimary"
-noko = Nokogiri::HTML response.body
+
 
 
   def autofill
@@ -29,9 +28,9 @@ noko = Nokogiri::HTML response.body
     if @job.web_address.include?('indeed.com')
       company = noko.xpath('//*[@id="job_header"]/span[1]').first.content
       position = noko.xpath('//*[@id="job_header"]/b/font').first.content
-    elsif @job.web_address.include?('angel.io')
-      company = noko.xpath('//*[@id="top-card"]/div/div[1]/div[2]/h3[1]/a/span[1]').first
-      position = noko.css('.title').text
+    # elsif @job.web_address.include?('angel.io')
+    #   company = noko.xpath('//*[@id="top-card"]/div/div[1]/div[2]/h3[1]/a/span[1]').first
+    #   position = noko.css('.title').text
     elsif @job.web_address.include?('ziprecruiter.com')
       company = noko.css('.job_details_icon > span')
       position = noko.css('.job_header h1').text
