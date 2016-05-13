@@ -39,9 +39,13 @@ gem 'json'
 gem 'rails_12factor', group: :production
 
 #indeed authentication
-gem 'linkedin'
+# gem 'devise'
+# gem 'linkedin'
+# gem 'omniauth'
+# gem 'omniauth-oauth2'
+# gem 'omniauth-linkedin-oauth2'
 gem 'omniauth'
-gem 'omniauth-linkedin-oauth2'
+gem 'omniauth-linkedin'
 
 
 group :development, :test do
