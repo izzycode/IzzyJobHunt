@@ -44,8 +44,11 @@ gem 'rails_12factor', group: :production
 # gem 'omniauth'
 # gem 'omniauth-oauth2'
 # gem 'omniauth-linkedin-oauth2'
-gem 'omniauth'
-gem 'omniauth-linkedin'
+# gem 'omniauth'
+# gem 'omniauth-linkedin'
+
+gem 'omniauth-linkedin-oauth2'
+
 
 
 group :development, :test do
