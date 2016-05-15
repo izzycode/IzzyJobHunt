@@ -1,22 +1,6 @@
 module HonchosHelper
 
-  def user_current_kahunas
-    current_user_jobs = Job.where(user_id: current_user.id, archived: false)
-    companies = []
-    current_user_jobs.each do |j|
-      if !j.company_id.nil?
-       companies << j.company_id
-     end
-    end
-    kahunas = []
-    companies.uniq!
-    if companies.length > 0
-      companies.each do |c|
-        kahunas << Honcho.where(company_id: c)
-      end
-    end
-    kahunas.flatten
-  end
+
 
   def any_company_kahunas?(company)
     if Honcho.where(company_id: company.id).count > 0
@@ -28,6 +12,21 @@ module HonchosHelper
 
   def company_kahunas(company)
     Honcho.where(company_id: company.id)
+  end
+
+  def user_current_kahunas
+    kahunas = []
+    companies = []
+    current_user.jobs.each do |job|
+      if job.archived == false
+        companies << job.company_id
+      end
+    end
+    companies.each do |comp|
+      kahunas << Honcho.where(company_id: comp)
+    end
+
+    kahunas.flatten
   end
 
 

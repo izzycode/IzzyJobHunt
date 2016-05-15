@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :mailer]
+  before_filter :authorize
 
   # GET /users
   # GET /users.json
@@ -12,7 +13,25 @@ class UsersController < ApplicationController
   def show
     @company = Company.new
     @job = Job.new
+    p "<>"*47
+    p check_to_mail?
+    if check_to_mail?
+      flash[:info] = "Congratulations! Your are ready to submit your 10/30."
+    end
   end
+
+  def search
+  end
+
+  def mail_please
+    UserMailer.ten_thirty_full(current_user).deliver
+    redirect_to @user, notice: 'Email sent!'
+  end
+
+  # def iframe_action
+  #   response.headers["X-FRAME-OPTIONS"] = "ALLOW-FROM https://www.indeed.com/jobs"
+  #   render_something
+  # end
 
   # GET /users/new
   def new

@@ -19,6 +19,10 @@ module SessionsHelper
   #   end
   # end
 
+  def authorize
+    redirect_to '/login' unless current_user
+  end
+
   def current_user?(user)
     user == current_user
   end

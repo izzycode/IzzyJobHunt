@@ -32,16 +32,27 @@ gem 'bcrypt'
 # gem 'capistrano-rails', group: :development
 
 gem 'hirb'
-gem 'awesome_print'
 gem "twitter-bootstrap-rails"
+
+
 gem 'seed_dump'
-gem 'rails-erd'
 gem 'dotenv-rails', :groups => [:development, :test]
-gem 'omniauth-linkedin', '~> 0.2.0'
-gem 'oauth2', '~> 1.1'
+gem 'httparty'
+gem 'json'
+gem 'rails_12factor', group: :production
+
+#indeed authentication
+# gem 'devise'
+# gem 'linkedin'
+# gem 'omniauth'
+# gem 'omniauth-oauth2'
+# gem 'omniauth-linkedin-oauth2'
+# gem 'omniauth'
+# gem 'omniauth-linkedin'
+
 gem 'omniauth-linkedin-oauth2'
 
-gem 'rails_12factor', group: :production
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -51,6 +62,11 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  gem 'seed_dump'
+  gem 'rails-erd'
+
+
+
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

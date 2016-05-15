@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   root 'welcome#izzybam'
   post 'login', to: 'sessions#create'
   post 'logout', to: 'sessions#destroy'
+<<<<<<< HEAD
   
   get '/auth/:provider/callback', to: 'sessions#create'
   delete 'sign_out', to: 'sessions#destroy', as: 'sign_out'
@@ -25,6 +26,12 @@ Rails.application.routes.draw do
   end
 
 
+=======
+  post 'autofill', to: 'jobs#autofill'
+
+  get 'job_search', to: 'users#search'
+  get 'mail_please', to: 'users#mail_please'
+>>>>>>> master
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

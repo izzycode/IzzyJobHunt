@@ -1,5 +1,6 @@
 class AttemptsController < ApplicationController
   before_action :set_attempt, only: [:show, :edit, :update, :destroy]
+  before_filter :authorize
 
   # GET /attempts
   # GET /attempts.json

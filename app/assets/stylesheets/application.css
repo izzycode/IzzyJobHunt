@@ -13,3 +13,38 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+#side-info  {
+  background-color: rgba(180, 180, 180, 0.5);
+  color:white;
+  text-shadow: 0 0 6px black;
+  padding: 10px 5px 15px 5px;
+  margin:5px auto;
+  text-align: center;
+
+
+}
+
+#side-info a {
+  color:white;
+  text-shadow: 0 0 4px black;
+
+}
+
+#submit-email {
+  animation-duration: 1500ms;
+  animation-name: blink;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes blink {
+  from {
+     color: white;
+  }
+  to {
+     color: red;
+  }
+}
