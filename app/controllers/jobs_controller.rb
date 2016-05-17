@@ -50,7 +50,7 @@ class JobsController < ApplicationController
     @job.company_id = @company.id
     @job.save
 
-    redirect_to edit_job_path(@job), notice: 'Please verify the information obtained from the website.'
+    redirect_to edit_job_path(@job,@company), notice: 'Please verify the information obtained from the website.'
 
   end
 

@@ -19,5 +19,21 @@
 
   <br />
   <br />
+
+  <%= f.submit "Submit", class:"btn btn-success" %>
+<% end %>
+
+<h1>Editing Company</h1>
+
+<% if @company.nil? %>
+  <% @company = Company.find(params[:format]) %>
+<% end %>
+
+<%= form_for(@company) do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class:"form-control" %>
+  <br />
+
   <%= f.submit "Submit", class:"btn btn-success" %>
 <% end %>
