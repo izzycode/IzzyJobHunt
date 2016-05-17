@@ -14,11 +14,14 @@ Rails.application.routes.draw do
   root 'welcome#izzybam'
   post 'login', to: 'sessions#create'
   post 'logout', to: 'sessions#destroy'
-<<<<<<< HEAD
-  
+  post 'autofill', to: 'jobs#autofill'
+
+  get 'job_search', to: 'users#search'
+  get 'mail_please', to: 'users#mail_please'
+
+  #linkedin routes
   get '/auth/:provider/callback', to: 'sessions#create'
   delete 'sign_out', to: 'sessions#destroy', as: 'sign_out'
-
 
   get '/auth/failure' do
     flash[:notice] = params[:message] # if using sinatra-flash or rack-flash
@@ -26,12 +29,7 @@ Rails.application.routes.draw do
   end
 
 
-=======
-  post 'autofill', to: 'jobs#autofill'
 
-  get 'job_search', to: 'users#search'
-  get 'mail_please', to: 'users#mail_please'
->>>>>>> master
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
