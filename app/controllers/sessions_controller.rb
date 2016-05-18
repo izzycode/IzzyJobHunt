@@ -3,6 +3,10 @@ class SessionsController < ApplicationController
   def new
   end
 
+  def linkedin
+    
+  end
+
   def create
     # auth = request.env['omniauth.auth']
     # session[:omniauth] = auth.except('extra')

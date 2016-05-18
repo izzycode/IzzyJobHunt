@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   get 'mail_please', to: 'users#mail_please'
 
   #linkedin routes
-  get '/auth/:provider/callback', to: 'sessions#create'
+  # get '/auth/:provider/callback', to: 'sessions#create'
+  get 'localhost:300/:code', to: 'sessions#linkedin'
   delete 'sign_out', to: 'sessions#destroy', as: 'sign_out'
 
   get '/auth/failure' do
