@@ -13,8 +13,6 @@ class UsersController < ApplicationController
   def show
     @company = Company.new
     @job = Job.new
-    p "<>"*47
-    p check_to_mail?
     if check_to_mail?
       flash[:info] = "Congratulations! Your are ready to submit your 10/30."
     end
@@ -25,7 +23,7 @@ class UsersController < ApplicationController
 
   def mail_please
     UserMailer.ten_thirty_full(current_user).deliver
-    redirect_to @user, notice: 'Email sent!'
+    redirect_to current_user, notice: 'Email sent!'
   end
 
   # def iframe_action
