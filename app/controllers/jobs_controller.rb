@@ -36,8 +36,8 @@ class JobsController < ApplicationController
       position = noko.css('.job_header h1').text
       # position = noko.xpath('//*[@id="page-content-wrapper"]/div[2]/div[1]/div[2]/div/div/div/div/div[1]/h1').first.content
     else
-      company = "Sorry, couldn't catch that."
-      position = "Sorry, couldn't catch that."
+      company = "Couldn't autofill this information, please paste company name here."
+      position = "Couldn't autofill this information, please paste position title here."
     end
 
 
@@ -50,7 +50,7 @@ class JobsController < ApplicationController
     @job.company_id = @company.id
     @job.save
 
-    redirect_to edit_job_path(@job), notice: 'Please verify the information obtained from the website.'
+    redirect_to edit_job_path(@job,@company), notice: 'Please verify the information obtained from the website.'
 
   end
 
