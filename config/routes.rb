@@ -19,6 +19,20 @@ Rails.application.routes.draw do
   get 'job_search', to: 'users#search'
   get 'mail_please', to: 'users#mail_please'
 
+  # #linkedin routes
+  # get '/auth/:provider/callback', to: 'sessions#linkedin'
+  #
+  # delete 'sign_out', to: 'sessions#destroy', as: 'sign_out'
+  #
+  # # get '/auth/failure', to: 'oauth#failure', as: 'oauth_failure'
+  # get '/auth/failure' do
+  #   flash[:notice] = params[:message] # if using sinatra-flash or rack-flash
+  #   redirect '/'
+  # end
+
+
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

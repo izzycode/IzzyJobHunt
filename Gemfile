@@ -38,7 +38,7 @@ gem 'httparty'
 gem 'json'
 gem 'rails_12factor', group: :production
 
-#indeed authentication
+#linkedin authentication
 # gem 'devise'
 # gem 'linkedin'
 # gem 'omniauth'
@@ -46,9 +46,9 @@ gem 'rails_12factor', group: :production
 # gem 'omniauth-linkedin-oauth2'
 # gem 'omniauth'
 # gem 'omniauth-linkedin'
-
-gem 'omniauth-linkedin-oauth2'
-
+# gem 'omniauth-linkedin-oauth2'
+gem 'omniauth', '~> 1.3'
+gem 'omniauth-auth0', '~> 1.4'
 
 
 group :development, :test do
