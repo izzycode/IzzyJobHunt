@@ -4,8 +4,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-
-    user = User.find_by(email: params[:session][:email].downcase)
+    p "<>"*47
+    session[:userinfo]
+    user = User.find_by(email: session[:email].downcase)
     if user && user.authenticate(params[:session][:password])
       @current_user ||= User.find_by(id: log_in(user))
       log_in user

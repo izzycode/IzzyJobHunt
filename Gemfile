@@ -38,6 +38,8 @@ gem 'httparty'
 gem 'json'
 gem 'rails_12factor', group: :production
 
+
+
 #linkedin authentication
 # gem 'devise'
 # gem 'linkedin'

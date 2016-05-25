@@ -12,8 +12,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#izzybam'
-  post 'login', to: 'sessions#create'
-  post 'logout', to: 'sessions#destroy'
+  get 'login', to: 'sessions#create'
+  get 'logout', to: 'sessions#destroy'
   post 'autofill', to: 'jobs#autofill'
 
   get 'job_search', to: 'users#search'
@@ -30,6 +30,9 @@ Rails.application.routes.draw do
   #   redirect '/'
   # end
 
+  # auth0 routes
+  get "/auth/auth0/callback", to: "auth0#callback"
+  get "/auth/failure", to: "auth0#failure"
 
 
 

@@ -6,4 +6,8 @@ module UsersHelper
       false
     end
   end
+
+  def user_exists?(userinfo)
+    User.find_by(email:session[:userinfo].info.email.downcase).nil?
+  end
 end

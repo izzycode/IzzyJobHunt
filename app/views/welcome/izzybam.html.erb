@@ -8,6 +8,28 @@
   <br />
   <%= f.submit "Log In", class:"btn btn-success" %>
 <% end %>
-
+<br />
+<button class="btn btn-primary btn-md" onclick="window.signin();">Login with Auth0</button>
+<br />
 <br />
 <%= link_to "Sign Up", new_user_path, class:'btn btn-primary' %>
+<br />
+<br />
+<%= link_to "LogOut", 'https://izzy-code.auth0.com/v2/logout?returnTo=http://localhost:3000/logout', class:"btn btn-md btn-default" %>
+
+<script src="https://cdn.auth0.com/js/lock-9.1.min.js"></script>
+<script type="text/javascript">
+
+  var lock = new Auth0Lock('<%= ENV['AUTH0_ID'] %>', 'izzy-code.auth0.com');
+
+  function signin() {
+    lock.show({
+        connections: ['github', 'linkedin'],
+        callbackURL: '/auth/auth0/callback'
+      , responseType: 'code'
+      , authParams: {
+        scope: 'openid email profile'  // Learn about scopes: https://auth0.com/docs/scopes
+      }
+    });
+  }
+</script>
