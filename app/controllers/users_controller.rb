@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :mailer]
+  before_action :set_user, only: [ :edit, :update, :destroy, :mailer]
   before_filter :authorize
 
   # GET /users

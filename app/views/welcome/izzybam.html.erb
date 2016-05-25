@@ -1,23 +1,44 @@
 <h1>Hi there</h1>
 
-<%= form_for(:session, url: login_path) do |f| %>
-  <%= f.label :email %>
-  <%= f.email_field :email, class:"form-control" %>
-  <%= f.label :password %>
-  <%= f.password_field :password, class:"form-control" %>
+<%#= form_for(:session, url: login_path) do |f| %>
+  <%#= f.label :email %>
+  <%#= f.email_field :email, class:"form-control" %>
+  <%#= f.label :password %>
+  <%#= f.password_field :password, class:"form-control" %>
   <br />
-  <%= f.submit "Log In", class:"btn btn-success" %>
-<% end %>
-<br />
-<button class="btn btn-primary btn-md" onclick="window.signin();">Login with Auth0</button>
-<br />
-<br />
-<%= link_to "Sign Up", new_user_path, class:'btn btn-primary' %>
-<br />
-<br />
+  <%#= f.submit "Log In", class:"btn btn-success" %>
+<%# end %>
+
+<div id="root">
+    embeded area
+</div>
+<script src="https://cdn.auth0.com/js/lock-9.1.min.js"></script>
+<script>
+
+  var lock = new Auth0Lock('5pGZH82GLB9jeNeGWxWlRglPRnJwo4lm', 'izzy-code.auth0.com');
+
+
+  lock.show({
+      container: 'root'
+    , callbackURL: 'http://localhost:3000/auth/auth0/callback'
+    , responseType: 'code'
+    , authParams: {
+      scope: 'openid email'  // Learn about scopes: https://auth0.com/docs/scopes
+    }
+  });
+</script>
+
+
+
+
+
+<!-- <button class="btn btn-primary btn-md" onclick="window.signin();">Login with Auth0</button> -->
+
+<%#= link_to "Sign Up", new_user_path, class:'btn btn-primary' %>
+
 <%= link_to "LogOut", 'https://izzy-code.auth0.com/v2/logout?returnTo=http://localhost:3000/logout', class:"btn btn-md btn-default" %>
 
-<script src="https://cdn.auth0.com/js/lock-9.1.min.js"></script>
+<!-- <script src="https://cdn.auth0.com/js/lock-9.1.min.js"></script>
 <script type="text/javascript">
 
   var lock = new Auth0Lock('<%= ENV['AUTH0_ID'] %>', 'izzy-code.auth0.com');
@@ -32,4 +53,4 @@
       }
     });
   }
-</script>
+</script> -->
