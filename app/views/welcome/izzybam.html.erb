@@ -25,7 +25,7 @@
   function signin() {
     lock.show({
         connections: ['github', 'linkedin'],
-        callbackURL: '/auth/auth0/callback'
+        callbackURL: 'http://localhost:3000/auth/auth0/callback'
       , responseType: 'code'
       , authParams: {
         scope: 'openid email profile'  // Learn about scopes: https://auth0.com/docs/scopes
