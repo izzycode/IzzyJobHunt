@@ -11,7 +11,11 @@ class SessionsController < ApplicationController
       session[:image] = result["background"]
     end
 
-    redirect_to 'users#show'
+
+    p session[:userinfo]
+
+    redirect '/'
+    # redirect_to 'users#show'
 
   end
 

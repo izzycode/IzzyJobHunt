@@ -1,19 +1,19 @@
 module SessionsHelper
 
   def log_in(user)
-    
+
   end
 
   def logged_in?
-    !session[:userinfo].nil?
+    false
   end
 
   def current_user
-    session[:userinfo].info
+
   end
 
   def current_user?(user)
-    user == current_user
+    false
   end
 
   def authorize
