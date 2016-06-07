@@ -20,16 +20,7 @@ Rails.application.routes.draw do
   get 'mail_please', to: 'users#mail_please'
   get 'test', to: "sessions#test_create"
 
-  # #linkedin routes
-  # get '/auth/:provider/callback', to: 'sessions#linkedin'
-  #
-  # delete 'sign_out', to: 'sessions#destroy', as: 'sign_out'
-  #
-  # # get '/auth/failure', to: 'oauth#failure', as: 'oauth_failure'
-  # get '/auth/failure' do
-  #   flash[:notice] = params[:message] # if using sinatra-flash or rack-flash
-  #   redirect '/'
-  # end
+
 
   # auth0 routes
   get "/auth/auth0/callback", to: "auth0#callback"
