@@ -59,6 +59,8 @@ class JobsController < ApplicationController
   def update
     respond_to do |format|
       if @job.update(job_params)
+        @job.company = params[:job][:name]
+        @job.company.save
         format.html { redirect_to current_user, notice: 'Job was successfully updated.' }
         format.json { render :show, status: :ok, location: @job }
       else
