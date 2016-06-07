@@ -26,10 +26,8 @@ class AttemptsController < ApplicationController
   # POST /attempts.json
   def create
     @attempt = Attempt.new(attempt_params)
-    @attempt.date = Date.parse(params[:attempt][:date])
-    p "<>"*27
-    p params[:date]
-    p   @attempt.date
+    @attempt.date = Date.parse(params[:attempt][:date]) if params[:attempt][:date]
+
     respond_to do |format|
       if @attempt.save
         format.html { redirect_to current_user, notice: 'Attempt was successfully created.' }
@@ -44,7 +42,7 @@ class AttemptsController < ApplicationController
   # PATCH/PUT /attempts/1
   # PATCH/PUT /attempts/1.json
   def update
-    @attempt.date = Date.parse(params[:attempt][:date])
+    @attempt.date = Date.parse(params[:attempt][:date]) if !params[:attempt][:date].empty?
     respond_to do |format|
       if @attempt.update(attempt_params)
         format.html { redirect_to current_user, notice: 'Attempt was successfully updated.' }
