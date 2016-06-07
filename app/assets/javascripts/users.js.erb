@@ -2,14 +2,15 @@
 // All this logic will automatically be available in application.js.
 
 // Opens 3 pages for job searching
-function open_win() {
+function open_win(event) {
+  event.preventDefault();
   var what = $('#what').val().trim().replace(/\s/g,"+");
   var where = $('#where').val().trim().replace(/\s/g,"+");
-  window.open("https://www.indeed.com/jobs?q="+what+"&l="+where);
-  window.open("https://ziprecruiter.com/candidate/search?search="+what+"&location="+where);
-
   var whatLink = $('#what').val().trim().replace(" ","-");
   var whereLink = $('#where').val().trim().replace(" ","-");
+
+  window.open("https://www.indeed.com/jobs?q="+what+"&l="+where);
+  window.open("https://ziprecruiter.com/candidate/search?search="+what+"&location="+where);
   window.open("https://www.linkedin.com/jobs/"+whatLink+"-jobs-"+whereLink+"?trk=jserp_search_button_execute");
 }
 
