@@ -17,9 +17,9 @@
     <%= f.label :summary %><br>
     <%= f.text_area :summary, class:"form-control" %><br />
     <% if !@attempt.job %>
-      <%= f.text_field :job_id, value: params[:job_id], class:"form-control" %>
+      <%= f.hidden_field :job_id, value: params[:job_id], class:"form-control" %>
     <% else %>
-      <%= f.text_field :job_id, value: @attempt.job_id , class:"form-control" %>
+      <%= f.hidden_field :job_id, value: @attempt.job_id , class:"form-control" %>
     <% end %>
     <%= f.submit "Submit", class:"btn btn-success" %>
 <% end %>
