@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
-    redirect_to 'https://izzy-code.auth0.com/v2/logout?returnTo=http://localhost:3000/'
+    redirect_to "https://izzy-code.auth0.com/v2/logout?returnTo=#{ENV['URL']}"
   end
 
 
