@@ -41,6 +41,7 @@ GEM
       debug_inspector (>= 0.0.1)
     bootstrap-datepicker-rails (1.6.1.1)
       railties (>= 3.0)
+    bootstrap-tour-rails (0.4.0)
     builder (3.2.2)
     byebug (8.2.2)
     choice (0.2.0)
@@ -195,6 +196,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-datepicker-rails
+  bootstrap-tour-rails
   byebug
   dotenv-rails
   hirb
@@ -202,6 +204,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   json
+  nokogiri
   omniauth (~> 1.3)
   omniauth-auth0 (~> 1.4)
   pg (~> 0.15)

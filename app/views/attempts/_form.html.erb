@@ -11,7 +11,7 @@
   <% end %>
 
     <%= f.label :date %><br>
-    <input type="text" data-provide='datepicker' class="form-control" >
+    <%= f.text_field :date, data:{provide:'datepicker'}, class:"form-control", id:"sandbox-container" %>
     <%= f.label :form_of_contact %><br>
     <%= f.text_field :medium, class:"form-control", placeholder:'e.g.: call, email ...' %>
     <%= f.label :summary %><br>
@@ -21,6 +21,14 @@
     <% else %>
       <%= f.text_field :job_id, value: @attempt.job_id , class:"form-control" %>
     <% end %>
-
     <%= f.submit "Submit", class:"btn btn-success" %>
 <% end %>
+
+<script>
+$('#sandbox-container').datepicker({
+    startDate: "01/01/2016",
+    endDate: "01/01/2017",
+    todayBtn: "linked",
+    todayHighlight: true
+});
+</script>

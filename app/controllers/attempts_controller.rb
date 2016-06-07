@@ -26,7 +26,10 @@ class AttemptsController < ApplicationController
   # POST /attempts.json
   def create
     @attempt = Attempt.new(attempt_params)
-
+    @attempt.date = Date.parse(params[:attempt][:date])
+    p "<>"*27
+    p params[:date]
+    p   @attempt.date
     respond_to do |format|
       if @attempt.save
         format.html { redirect_to current_user, notice: 'Attempt was successfully created.' }
@@ -41,6 +44,7 @@ class AttemptsController < ApplicationController
   # PATCH/PUT /attempts/1
   # PATCH/PUT /attempts/1.json
   def update
+    @attempt.date = Date.parse(params[:attempt][:date])
     respond_to do |format|
       if @attempt.update(attempt_params)
         format.html { redirect_to current_user, notice: 'Attempt was successfully updated.' }
@@ -70,6 +74,6 @@ class AttemptsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attempt_params
-      params.require(:attempt).permit(:date, :medium, :summary, :job_id)
+      params.require(:attempt).permit(:medium, :summary, :job_id, :date)
     end
 end
