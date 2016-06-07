@@ -11,7 +11,7 @@
 
   lock.show({
       container: 'root'
-    , callbackURL: "ENV['URL']auth/auth0/callback"
+    , callbackURL: "<%=#{ENV['URL']}%>auth/auth0/callback"
     , responseType: 'code'
     , authParams: {
       scope: 'openid email'  // Learn about scopes: https://auth0.com/docs/scopes
