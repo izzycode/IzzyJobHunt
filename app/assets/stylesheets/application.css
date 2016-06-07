@@ -15,7 +15,6 @@
  */
 
 
-
 #side-info  {
   background-color: rgba(180, 180, 180, 0.5);
   color:white;
@@ -23,15 +22,14 @@
   padding: 10px 5px 15px 5px;
   margin:5px auto;
   text-align: center;
-
-
 }
 
 #side-info a {
   color:white;
   text-shadow: 0 0 4px black;
-
 }
+
+
 
 #submit-email {
   animation-duration: 1500ms;
@@ -47,4 +45,98 @@
   to {
      color: red;
   }
+}
+
+
+/*Bootstrap Colors Override*/
+
+body {
+  background-color: #54BEF8;
+}
+.navbar {
+  background-color: #0070BD;
+}
+
+.nav>li>a, .nav>li>a:visited{
+  color:white;
+}
+
+.panel-collapse {
+  background-color: #DDEAB0;
+}
+
+.nav>li>a:hover, .nav>li>a:focus {
+  background-color: rgba(214, 236, 246, 0.2);
+  color:black;
+}
+
+div.well.sidebar-nav {
+  background-color: #FDE821;
+}
+
+a:visited, a:active{
+  color:white;
+}
+
+a:hover{
+  text-decoration: none;
+}
+.btn{
+  transition: all 0.3s linear;
+}
+.btn:hover{
+  drop-shadow(0px 0px 8px rgba(0, 231, 255, 0.8));
+}
+.user-btn{
+  margin-top:10px;
+  display:flex;
+  justify-content: space-around;
+}
+
+.user-btn a{
+  width:40%;
+}
+
+.btn-default{
+  color:white;
+  background-color: #0A72E5;
+}
+.btn-warning({
+  background-color: #FFA95D;
+}
+  )
+.btn-1{
+  background-color:#0070BD ;
+}
+.btn-2{
+  background-color:#12A9F8 ;
+}
+.btn-3{
+  background-color:#99CC00;
+}
+.btn-4{
+  background-color:#00C600 ;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open>.dropdown-toggle.btn-default {
+  background-color:#fff;
+  color:#0A72E5;
+}
+.btn-success:hover, .btn-success:active, .btn-success:focus {
+  color:#57B754;
+  background-color: #eee;
+}
+
+.btn-2:hover, .btn-2:focus, .btn-2:active{
+  color:#12A9F8;
+}
+.btn-3:hover, .btn-3:focus, .btn-3:active{
+  color:#99CC00;
+}
+.btn-4:hover, .btn-4:focus, .btn-4:active{
+  color:#00C600 ;
+}
+
+.table-hover>tbody>tr:hover{
+  background-color: rgba(214, 236, 246, 0.2);
 }

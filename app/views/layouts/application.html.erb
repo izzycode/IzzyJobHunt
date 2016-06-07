@@ -38,35 +38,26 @@
     <![endif]-->
   </head>
   <body>
-
-    <div class="navbar navbar-inverse navbar-static-top">
+    <div class="navbar navbar-static-top">
       <div class="container">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand muted-text" href="<%= !current_user.nil? ? user_path(current_user) : "#" %>"><h4>Izzy'sJobHunt</h4></a>
-        <% if logged_in? %>
           <div class="navbar-collapse collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav">
-              <li><%= link_to "New Job", new_job_path(current_user.id) %></li>
-              <% if any_archived_jobs? %>
-                <li><%= link_to "Archived", jobs_path(current_user.id, archived: true) %></li>
-              <% end %>
-              <% if !current_jobs.empty? %>
-                <li><%= link_to "New Company", new_company_path(current_user.id) %></li>
-              <% end %>
-              <% if check_to_mail? %>
-                <li>
-                  <%= link_to "Send Rita an email alert", mail_please_path, id:"submit-email"  %>
-                </li>
+              <li><a href="<%= logged_in? ? user_path(current_user) : "#" %>"><strong>EzzyJobHunt</strong></a></li>
+              <% if logged_in? %>
+                <li><%= link_to "New Job", new_job_path(current_user.id) %></li>
+                <% if any_archived_jobs? %>
+                  <li><%= link_to "Archived", jobs_path(current_user.id, archived: true) %></li>
+                <% end %>
 
+                <% if check_to_mail? %>
+                  <li>
+                    <%= link_to "Send Rita an email alert", mail_please_path, id:"submit-email"  %>
+                  </li>
+                <% end %>
               <% end %>
 
             </ul>
           </div>
-        <% end %>
       </div>
     </div>
 
@@ -88,8 +79,11 @@
                 </ul>
                 <q><%= session[:quote] if !Rails.env.development? %></q>
               </div>
-              <%= button_to "Log Out", logout_path, class:"btn btn-xs btn-danger"  %>
-              <%= link_to "Edit", edit_user_path(current_user), class:"btn btn-xs btn-primary" %>
+              <div class="user-btn">
+                <%= link_to "Log Out", logout_path, class:"btn btn-default"  %>
+                <%= link_to "Edit Info", edit_user_path(current_user), class:"btn btn-default" %>
+              </div>
+
             </div><!--/.well -->
           </div><!--/span-->
           <%= render 'users/search' %>
@@ -97,15 +91,13 @@
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Izzy's Code 2016</p>
+        <p>&copy; IzzyCode 2016</p>
       </footer>
 
     </div> <!-- /container -->
     <% if Rails.env.development? %>
-      <%= console %>
-      <%= debug(params) %>
+      <%#= console %>
+      <%#= debug(params) %>
     <% end %>
-
-
   </body>
 </html>

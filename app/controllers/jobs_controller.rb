@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize
+  before_filter :authorize, only: [:index]
 
   # GET /jobs
   # GET /jobs.json
@@ -18,39 +18,30 @@ class JobsController < ApplicationController
   def show
   end
 
-
-
-
-  def autofill
+  # Grabs Job.position and Company.name from provided url only for indeed and ziprecruiter
+  def create
     @job = Job.new(job_params)
     response = HTTParty.get @job.web_address
     noko = Nokogiri::HTML response.body
     if @job.web_address.include?('indeed.com')
       company = noko.xpath('//*[@id="job_header"]/span[1]').first.content
       position = noko.xpath('//*[@id="job_header"]/b/font').first.content
-    # elsif @job.web_address.include?('angel.io')
-    #   company = noko.xpath('//*[@id="top-card"]/div/div[1]/div[2]/h3[1]/a/span[1]').first
-    #   position = noko.css('.title').text
     elsif @job.web_address.include?('ziprecruiter.com')
-      company = noko.css('.job_details_icon > span')
+      company = noko.css('span[itemprop="name"]').text
       position = noko.css('.job_header h1').text
-      # position = noko.xpath('//*[@id="page-content-wrapper"]/div[2]/div[1]/div[2]/div/div/div/div/div[1]/h1').first.content
     else
       company = "Couldn't autofill this information, please paste company name here."
       position = "Couldn't autofill this information, please paste position title here."
     end
 
-
     p "<>"*47
     p company
     p position
-
     @job.position = position
-    @company = Company.create(name:company)
-    @job.company_id = @company.id
+    @job.company = Company.create(name:company)
     @job.save
 
-    redirect_to edit_job_path(@job,@company), notice: 'Please verify the information obtained from the website.'
+    redirect_to edit_job_path(@job), notice: 'Please verify the information obtained from the website.'
 
   end
 
@@ -63,28 +54,12 @@ class JobsController < ApplicationController
   def edit
   end
 
-  # POST /jobs
-  # POST /jobs.json
-  def create
-    @job = Job.new(job_params)
-
-    respond_to do |format|
-      if @job.save
-        format.html { redirect_to current_user, notice: 'Job was successfully created.' }
-        format.js { flash[:notice] = "Company successfully added"}
-      else
-        format.html { render :new }
-        format.json { render json: @job.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-
   # PATCH/PUT /jobs/1
   # PATCH/PUT /jobs/1.json
   def update
     respond_to do |format|
       if @job.update(job_params)
+        @company =
         format.html { redirect_to current_user, notice: 'Job was successfully updated.' }
         format.json { render :show, status: :ok, location: @job }
       else
@@ -99,7 +74,7 @@ class JobsController < ApplicationController
   def destroy
     @job.destroy
     respond_to do |format|
-      format.html { redirect_to current_user, notice: 'Job was successfully destroyed.' }
+      format.html { redirect_to current_user, notice: 'Job was successfully deleted.' }
       format.json { head :no_content }
     end
   end

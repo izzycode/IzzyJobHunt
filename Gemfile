@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt'
+# gem 'bcrypt'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -33,10 +33,17 @@ gem 'bcrypt'
 
 gem 'hirb'
 gem "twitter-bootstrap-rails"
+gem 'bootstrap-datepicker-rails'
+gem 'bootstrap-tour-rails'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'httparty'
+gem 'nokogiri'
 gem 'json'
 gem 'rails_12factor', group: :production
+
+
+
+
 
 # Auth0 authentication
 gem 'omniauth', '~> 1.3'

@@ -3,46 +3,34 @@
   They will automatically be included in application.css.
 */
 
-.accordion-heading
-{
-    background-color:#0CF;
-}
-.accordion-heading:hover
-{
-    background-color:#000;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
-}
-.accordion-heading > a
-{
-    color:#FFF;
-    text-decoration:none;
-    text-transform:uppercase;
+.panel-heading{
+  display: flex;
+  justify-content: space-around;
 }
 
-/*
-//CSS for the Indeed JobSearch Widget *SIGH*
-#indJobContent{padding-bottom: 5px;}
-#indJobContent .company_location{font-size: 11px;overflow: hidden;display:block;}
-#indJobContent.wide .job{display:block;float:left;margin-right: 5px;width: 135px;overflow: hidden}
-#indeed_widget_header{font-size:18px; padding-bottom: 5px; }
-#indeed_search_wrapper{clear: both;font-size: 12px;margin-top: 0px;padding-top: 2px;}
-#indeed_search_wrapper label{font-size: 12px;line-height: inherit;text-align: left; margin-right: 5px;}
-#indeed_search_wrapper input[type='text']{width: 100px; font-size: 11px; }#indeed_search_wrapper #qc{float:left;}
-#indeed_search_wrapper #lc{float:right;}
-#indeed_search_wrapper.stacked
-#qc, #indeed_search_wrapper.stacked
-#lc{float: none; clear: both;}
-#indeed_search_wrapper.stacked input[type='text']{width: 150px;}
-#indeed_search_wrapper.stacked label{display: block;padding-bottom: 5px;}
-#indeed_search_footer{width:295px; padding-top: 5px; clear: both;}
-#indeed_link{padding: 4px;right: 5px;clear: both;font-size: 11px; }
-#indeed_link a{text-decoration: none;}
-#results .job{padding: 1px 0px;}
-#pagination { clear: both; }</style><style type='text/css'>
-#indeed_link a{ color: #482EA6;}
-#indJobContent, #indeed_search_wrapper{ border-top: 1px solid #3B5FA3; }
-#indJobContent a { color: #B01558; }
-#indeed_widget_header{ color: #3A3F87; }*/
+.clickable{
+  width:20%;
+}
+
+.clickable-position{
+  width:40%;
+}
+
+.big-btn{
+ width: 100%;
+ overflow:scroll;;
+}
+
+.neon-glow {
+  animation: neon1 1.5s ease-in-out infinite alternate;
+
+}
+
+@keyframes neon1 {
+  from {
+    text-shadow: 0 0 0 #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #F16, 0 0 35px #F16, 0 0 40px #F16, 0 0 50px #F16, 0 0 75px #F16;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FFDD1B, 0 0 35px #FFDD1B, 0 0 40px #FFDD1B, 0 0 50px #FFDD1B, 0 0 75px #FFDD1B;
+  }
+}

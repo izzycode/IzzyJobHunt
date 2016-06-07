@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   get 'job_search', to: 'users#search'
   get 'mail_please', to: 'users#mail_please'
+  get 'test', to: "sessions#test_create"
 
   # #linkedin routes
   # get '/auth/:provider/callback', to: 'sessions#linkedin'

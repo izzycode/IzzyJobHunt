@@ -17,24 +17,12 @@
   <%= f.text_field :web_address, class:"form-control" %>
   <%= f.hidden_field :user_id, value: current_user.id, class:"form-control" %>
 
+  <h1>Editing Company</h1>
+  <%= f.label :name %>
+  <%= f.text_field :name, class:"form-control", value:@job.company.name%>
+
   <br />
   <br />
 
   <%= f.submit "Submit", class:"btn btn-success" %>
-<% end %>
-
-
-<% if !params[:format].nil? %>
-  <% @company = Company.find(params[:format]) %>
-
-  <h1>Editing Company</h1>
-
-  <%= form_for(@company) do |f| %>
-
-    <%= f.label :name %>
-    <%= f.text_field :name, class:"form-control" %>
-    <br />
-
-    <%= f.submit "Submit", class:"btn btn-success" %>
-  <% end %>
 <% end %>

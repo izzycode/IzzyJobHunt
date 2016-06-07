@@ -1,19 +1,28 @@
- <h1>Jobs</h1>
+ <h1>Applied</h1>
 
 <div class="panel-group col-lg-12" id="accordion">
   <% current_jobs.each_with_index do |job, i| %>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= i %>" class="btn btn-sm btn-info"><%= job.position.capitalize %></a>
-          <%= link_to "Go to Job posting", job.web_address, class:"btn btn-sm btn-default" %>
-          <%= link_to "Edit", edit_job_path(job), class:"btn btn-xs btn-warning" %>
-        </h4>
-          <%= form_for( job, url: job_path(job), html: { method: :patch } ) do |f| %>
-            <%= f.hidden_field :archived, value: true %>
-            <%= f.submit "Send to Archive", class:"btn btn-sm btn-default" %>
-          <% end %>
 
+        <div class="clickable-position">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= i %>" class="btn btn-default  big-btn btn-1"><%= job.position.capitalize %></a>
+        </div>
+
+        <div class="clickable">
+          <%= link_to "Job URL", job.web_address, class:"btn btn-default big-btn btn-2", target:"_blank"%>
+        </div>
+
+        <div class="clickable">
+          <%= link_to "Edit", edit_job_path(job), class:"btn btn-default big-btn btn-3" %>
+        </div>
+
+        <div class="clickable">
+          <a><%= form_for( job, url: job_path(job), html: { method: :patch } ) do |f| %>
+            <%= f.hidden_field :archived, value: true %>
+            <%= f.submit "Send to Archive", class:"btn btn-default big-btn btn-4"%>
+          <% end %></a>
+        </div>
       </div>
       <div id="collapse<%= i %>" class="panel-collapse collapse">
         <div class="panel-body">
@@ -21,33 +30,30 @@
           <!-- Company -->
           <h4><strong>Company:</strong></h4>
           <!-- Checks if the job has a company assigned to it -->
-          <% if !current_user.companies.empty? && !job.company.nil? %>
 
-            <!-- If there is a company assigned to the specific job, Displays the name of the company and options forr adding 'honchos', 'attempts', and also updating/editing the company itself -->
-            <%= link_to "Add Details", edit_company_path(current_user.id, job.company), {class:"btn btn-xs btn-warning"} %>
+          <!-- If there is a company assigned to the specific job, Displays the name of the company and options forr adding 'honchos', 'attempts', and also updating/editing the company itself -->
+          <%= link_to "Add Details", edit_company_path(current_user.id, job.company), {class:"btn btn-xs btn-warning"} %>
 
-            <%= render 'companies/show', company: job.company, i: i %>
+          <%= render 'companies/show', company: job.company, i: i %>
 
-            <!-- Shows Honchos along with company should a company be selected -->
-            <!-- Honchos -->
-            <h4><strong>Contacts:</strong></h4>
-            <%= link_to "New Contact", new_honcho_path(current_user.id, company_id: job.company.id), class:"btn btn-xs btn-warning" %>
-            <% if any_company_kahunas?(job.company) %>
-              <%= render 'honchos/index', honchos: company_kahunas(job.company), i: i %>
-            <% end %>
-            <!-- Honchos -->
-
-            <!-- Attempts start-->
-            <h4><strong>Attempts:</strong></h4>
-            <%= link_to "Follow Up", new_attempt_path(current_user.id, job_id: job.id), class:"btn btn-xs btn-warning" %>
-            <% if  any_job_attempts?(job) %>
-              <%= render 'attempts/index', job: job, i: i %>
-            <% end %>
-            <!-- Attempts end-->
-
-          <% else %>
-            <%= render 'companies/index', job: job, i: i%>
+          <!-- Shows Honchos along with company should a company be selected -->
+          <!-- Honchos -->
+          <h4><strong>Contacts:</strong></h4>
+          <%= link_to "New Contact", new_honcho_path(current_user.id, company_id: job.company.id), class:"btn btn-xs btn-warning" %>
+          <% if any_company_kahunas?(job.company) %>
+            <%= render 'honchos/index', honchos: company_kahunas(job.company), i: i %>
           <% end %>
+          <!-- Honchos -->
+
+          <!-- Attempts start-->
+          <h4><strong>Attempts:</strong></h4>
+          <%= link_to "Follow Up", new_attempt_path(current_user.id, job_id: job.id), class:"btn btn-xs btn-warning" %>
+          <% if  any_job_attempts?(job) %>
+            <%= render 'attempts/index', job: job, i: i %>
+          <% end %>
+          <!-- Attempts end-->
+
+
           <!-- Company -->
 
         </div>

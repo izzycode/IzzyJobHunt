@@ -1,7 +1,7 @@
 class CreateAttempts < ActiveRecord::Migration
   def change
     create_table :attempts do |t|
-      t.datetime :date
+      t.date :date
       t.string :medium
       t.text :summary
 

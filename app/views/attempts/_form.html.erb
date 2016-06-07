@@ -11,9 +11,9 @@
   <% end %>
 
     <%= f.label :date %><br>
-    <%= f.datetime_select :date, class:"form-control" %>
+    <input type="text" data-provide='datepicker' class="form-control" >
     <%= f.label :form_of_contact %><br>
-    <%= f.text_field :medium, class:"form-control" %>
+    <%= f.text_field :medium, class:"form-control", placeholder:'e.g.: call, email ...' %>
     <%= f.label :summary %><br>
     <%= f.text_area :summary, class:"form-control" %><br />
     <% if !@attempt.job %>

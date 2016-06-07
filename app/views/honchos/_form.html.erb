@@ -1,7 +1,7 @@
 <%= form_for(@honcho) do |f| %>
   <% if @honcho.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@honcho.errors.count, "error") %> prohibited this honcho from being saved:</h2>
+      <h2><%= pluralize(@honcho.errors.count, "error") %> prohibited this contact from being saved:</h2>
 
       <ul>
       <% @honcho.errors.full_messages.each do |message| %>
@@ -30,7 +30,7 @@
   <% end %>
 
   <br />
-  <%= f.submit "Submit", class:"btn btn-success" %>
+  <%= f.submit "Submit", class:"btn btn-default" %>
 
 <% end %>
 <br />

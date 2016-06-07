@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_filter :authorize, only: [:destroy]
 
   def new
   end
@@ -11,17 +12,22 @@ class SessionsController < ApplicationController
       session[:image] = result["background"]
     end
 
+    if !session[:userinfo].nil? && User.find_by(uid: session[:userinfo].uid).nil?
+      @user ||= User.create(email:session[:userinfo].info.email,
+                  name:session[:userinfo].info.name,
+                  uid:session[:userinfo].uid)
+      log_in(@user)
+    else
+      @user ||= User.find_by(uid: session[:userinfo].uid)
+      log_in(@user)
+    end
 
-    p session[:userinfo]
-
-    redirect '/'
-    # redirect_to 'users#show'
-
+    redirect_to @user
   end
 
   def destroy
     log_out if logged_in?
-    redirect_to root_url
+    redirect_to 'https://izzy-code.auth0.com/v2/logout?returnTo=http://localhost:3000/'
   end
 
 

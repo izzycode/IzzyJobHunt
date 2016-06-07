@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [ :edit, :update, :destroy, :mailer]
   before_filter :authorize
+  before_filter :admin, only: [:index]
 
   # GET /users
   # GET /users.json
@@ -26,11 +27,6 @@ class UsersController < ApplicationController
     redirect_to current_user, notice: 'Email sent!'
   end
 
-  # def iframe_action
-  #   response.headers["X-FRAME-OPTIONS"] = "ALLOW-FROM https://www.indeed.com/jobs"
-  #   render_something
-  # end
-
   # GET /users/new
   def new
     @user = User.new
@@ -42,27 +38,24 @@ class UsersController < ApplicationController
 
   # POST /users
   # POST /users.json
-  def create
-    @user = User.new(user_params)
-
-    respond_to do |format|
-      if @user.save
-        log_in(@user)
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def create
+  #   @user = User.new(email:session[:userinfo].info.email,
+  #               name:session[:userinfo].info.name,
+  #               uid:session[:userinfo].uid)
+  #   if @user.save
+  #     @user.save
+  #     redirect_to @user, notice: "Welcome #{@user.name}!"
+  #   else
+  #     redirect_to root_path, status: "Something went wrong. Let's try this again."
+  #   end
+  # end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to current_user, notice: 'Job was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -89,6 +82,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email)
     end
 end

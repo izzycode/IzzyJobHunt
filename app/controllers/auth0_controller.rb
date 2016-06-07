@@ -3,15 +3,8 @@ class Auth0Controller < ApplicationController
     # This stores all the user information that came from Auth0
     # and the IdP
     session[:userinfo] = request.env['omniauth.auth']
-    session[:auth_code] = params[:code]
-    session[:state] = params[:state]
 
-    if !user_exists?(session[:userinfo])
-      User.create(email:session[:userinfo].info.email,name:session[:userinfo][:name])
-    end
-
-    # Redirect to the URL you want after successfull auth0
-    redirect_to '/login'
+    redirect_to login_path
 
   end
 
