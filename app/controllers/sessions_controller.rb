@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
       log_in(@user)
     end
 
-    redirect_to @user
+    redirect_to current_user
   end
 
   def destroy

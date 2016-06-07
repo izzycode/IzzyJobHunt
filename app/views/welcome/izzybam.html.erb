@@ -17,7 +17,3 @@
     }
   });
 </script>
-
-<% if Rails.env.development? %>
-  <%= link_to "FailsafeLogOut", "https://izzy-code.auth0.com/v2/logout?returnTo=#{ENV['URL']}logout", class:"btn btn-md btn-default" %>
-<% end %>
