@@ -17,15 +17,7 @@ module SessionsHelper
   end
 
   def authorize
-    # if logged_in?
-    #   if current_user.id == params[:id]
-    #     return true
-    #   else
-    #     redirect_to current_user, error:"Sorry, you don't have access to this action."
-    #   end
-    # else
-    #   redirect_to "/"
-    # end
+    redirect_to "/" unless logged_in?
   end
 
   def forget(user)

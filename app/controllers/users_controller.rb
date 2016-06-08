@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [ :edit, :update, :destroy, :mailer]
-  before_filter :authorize
-  before_filter :admin, only: [:index]
+  before_action :authorize 
+  before_action :admin, only: [:index]
 
   # GET /users
   # GET /users.json

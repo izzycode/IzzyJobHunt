@@ -20,15 +20,13 @@ Rails.application.routes.draw do
   get 'mail_please', to: 'users#mail_please'
   get 'test', to: "sessions#test_create"
 
-  # match '*path' => redirect('/'), via: :get
-
-
 
   # auth0 routes
   get "/auth/auth0/callback", to: "auth0#callback"
   get "/auth/failure", to: "auth0#failure"
 
 
+  match '*path' => redirect { |p, req| req.flash[:error] = "I don't think you'll find anything useful in #{req.env["HTTP_HOST"]}#{req.env["REQUEST_PATH"]}"; '/' }, via: :get
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
