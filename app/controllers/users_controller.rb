@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [ :edit, :update, :destroy, :mailer]
-  before_action :authorize 
+  before_action :set_user, only: [ :edit, :update, :destroy]
+  before_action :authorize
   before_action :admin, only: [:index]
 
   # GET /users
@@ -23,7 +23,8 @@ class UsersController < ApplicationController
   end
 
   def mail_please
-    UserMailer.ten_thirty_full(set_user).deliver
+    @user = current_user
+    UserMailer.ten_thirty_full(current_user).deliver
     redirect_to current_user, notice: 'Email sent!'
   end
 
