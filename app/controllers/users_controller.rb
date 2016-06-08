@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def mail_please
-    UserMailer.ten_thirty_full(current_user).deliver
+    UserMailer.ten_thirty_full(set_user).deliver
     redirect_to current_user, notice: 'Email sent!'
   end
 

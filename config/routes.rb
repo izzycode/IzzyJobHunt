@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get 'mail_please', to: 'users#mail_please'
   get 'test', to: "sessions#test_create"
 
+  # match '*path' => redirect('/'), via: :get
+
 
 
   # auth0 routes
