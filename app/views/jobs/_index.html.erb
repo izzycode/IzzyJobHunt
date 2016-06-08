@@ -9,7 +9,9 @@
         </div>
 
         <div class="clickable">
-          <%= link_to "Job URL", job.web_address, class:"btn btn-default big-btn btn-2", target:"_blank"%>
+          <!-- Company -->
+          <%= render 'companies/show', company: job.company, i: i %>
+          <!-- Company -->
         </div>
 
         <div class="clickable">
@@ -26,10 +28,7 @@
       <div id="collapse<%= i %>" class="panel-collapse collapse">
         <div class="panel-body">
 
-          <!-- Company -->
-          <h4><strong>Company:</strong></h4>
-
-          <%= render 'companies/show', company: job.company, i: i %>
+          <%= link_to "Job URL", job.web_address, class:"btn btn-default big-btn btn-2", target:"_blank"%>
 
           <!-- Shows Honchos along with company should a company be selected -->
           <!-- Honchos -->
@@ -49,7 +48,6 @@
           <!-- Attempts end-->
 
 
-          <!-- Company -->
 
         </div>
       </div>

@@ -15,10 +15,10 @@ function open_win(event) {
 }
 
 $(document).ready(function(){
-  if (parseInt($('#ten').val()) > 9) {
+  if (parseInt($('#ten').text()) > 9) {
     $('#ten').addClass('neon-glow')
   }
-  if ($('#thirty').val() > 9) {
+  if ($('#thirty').text() > 9) {
     $('#thirty').addClass('neon-glow')
   }
 })

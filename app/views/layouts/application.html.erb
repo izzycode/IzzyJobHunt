@@ -83,7 +83,7 @@
                 <%= link_to "Log Out", logout_path, class:"btn btn-default"  %>
                 <%= link_to "Edit Info", edit_user_path(current_user), class:"btn btn-default" %>
               </div>
-
+              <span style="z-index:50;font-size:0.7em;"><img src="https://theysaidso.com/branding/theysaidso.png" height="15" width="15" alt="theysaidso.com"/><a href="https://theysaidso.com" title="Powered by quotes from theysaidso.com" style="color: #9fcc25; margin-left: 4px; vertical-align: middle;">theysaidso.com</a></span>
             </div><!--/.well -->
           </div><!--/span-->
           <%= render 'users/search' %>
@@ -96,7 +96,7 @@
 
     </div> <!-- /container -->
     <% if Rails.env.development? %>
-      <%= console %>
+      <%#= console %>
       <%#= debug(params) %>
     <% end %>
   </body>
