@@ -38,7 +38,7 @@ class JobsController < ApplicationController
     p company
     p position
     @job.position = position
-    @job.company = Company.create(name:company)
+    @job.create_company(name:company)
     @job.save
 
     redirect_to edit_job_path(@job), notice: 'Please verify the information obtained from the website.'

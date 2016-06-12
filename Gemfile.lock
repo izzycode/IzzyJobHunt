@@ -20,6 +20,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_importer (0.2.6)
+      roo
     activejob (4.2.6)
       activesupport (= 4.2.6)
       globalid (>= 0.3.0)
@@ -156,7 +158,11 @@ GEM
     rake (11.1.2)
     rdoc (4.2.2)
       json (~> 1.4)
+    roo (2.4.0)
+      nokogiri (~> 1)
+      rubyzip (~> 1.1, < 2.0.0)
     ruby-graphviz (1.2.2)
+    rubyzip (1.2.0)
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
@@ -195,6 +201,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_importer
   bootstrap-datepicker-rails
   bootstrap-tour-rails
   byebug

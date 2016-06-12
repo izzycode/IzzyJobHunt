@@ -27,6 +27,7 @@ gem 'httparty'
 gem 'nokogiri'
 gem 'json'
 gem 'rails_12factor', group: :production
+gem 'active_importer'
 
 # Auth0 authentication
 gem 'omniauth', '~> 1.3'
