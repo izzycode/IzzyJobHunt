@@ -21,43 +21,61 @@ $(document).ready(function(){
   if ($('#thirty').text() > 9) {
     $('#thirty').addClass('neon-glow')
   }
+
+  
+// chardin full page tour
+  $('body').chardinJs('start')
+
+
+
+
+
+
+
 })
 
 
-$(document).ready(function(){
-    var $demo, duration, remaining, tour;
-    $demo = $("#demo");
-    tour = new Tour({
-      debug: true,
-      steps: [
-        {
-          element: "#demo",
-          placement: "bottom",
-          title: "Welcome to Bootstrap Tour!",
-          content: "Introduce new users to your product by walking them through it step by step."
-        }, {
-          element: "#side-info",
-          smartPlacement: true,
-          title: "A super simple setup",
-          content: "Easy is better, right? The tour is up and running with just a few options and steps."
-        }, {
-          element: "#demo",
-          placement: "top",
-          title: "Best of all, it's free!",
-          content: "Yeah! Free as in beer... or speech. Use and abuse, but don't forget to contribute!"
-        }, {
-          element: "#side-info",
-          smartPlacement: true,
-          title: "Flexibilty and expressiveness",
-          content: "There are more options for those who want to get on the dark side.<br>\nPower to the people!",
-          reflex: true
-        }, {
-          element: "#demo",
-          placement: "top",
-          title: "Automagically expiring step",
-          content: "A new addition: make your tour (or step) completely automatic. You set the duration, Bootstrap\nTour does the rest. For instance, this step will disappear in <em>5</em> seconds.",
-        }
-      ]});
-  tour.init();
-  tour.start();
-  });
+
+
+
+
+
+
+
+// $(document).ready(function(){
+//     var $demo, duration, remaining, tour;
+//     $demo = $("#demo");
+//     tour = new Tour({
+//       debug: true,
+//       steps: [
+//         {
+//           element: "#demo",
+//           placement: "bottom",
+//           title: "Welcome to Bootstrap Tour!",
+//           content: "Introduce new users to your product by walking them through it step by step."
+//         }, {
+//           element: "#side-info",
+//           smartPlacement: true,
+//           title: "A super simple setup",
+//           content: "Easy is better, right? The tour is up and running with just a few options and steps."
+//         }, {
+//           element: "#demo",
+//           placement: "top",
+//           title: "Best of all, it's free!",
+//           content: "Yeah! Free as in beer... or speech. Use and abuse, but don't forget to contribute!"
+//         }, {
+//           element: "#side-info",
+//           smartPlacement: true,
+//           title: "Flexibilty and expressiveness",
+//           content: "There are more options for those who want to get on the dark side.<br>\nPower to the people!",
+//           reflex: true
+//         }, {
+//           element: "#demo",
+//           placement: "top",
+//           title: "Automagically expiring step",
+//           content: "A new addition: make your tour (or step) completely automatic. You set the duration, Bootstrap\nTour does the rest. For instance, this step will disappear in <em>5</em> seconds.",
+//         }
+//       ]});
+//   tour.init();
+//   tour.start();
+//   });
