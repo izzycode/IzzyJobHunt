@@ -14,28 +14,39 @@ function open_win(event) {
   window.open("https://www.linkedin.com/jobs/"+whatLink+"-jobs-"+whereLink+"?trk=jserp_search_button_execute");
 }
 
+var tour = <%=  @tour %>
 
 
 
 
 $(document).ready(function(){
+// Adds neon glow when jobs count reaches 10
   if (parseInt($('#ten').text()) > 9) {
     $('#ten').addClass('neon-glow')
   }
+// Adds neon glow when contacts count reaches 10
   if ($('#thirty').text() > 9) {
     $('#thirty').addClass('neon-glow')
   }
 
-  <% if @tour ==1 %>
+// Displays tour1 when user signs in for the first time
+  <% if @tour == 1 %>
     var $t1 = $('.tour1')
     $t1.filter('.t1').attr("data-intro","Add jobs you applied for.");
     $t1.filter('.t2').attr({"data-intro":"Edit your name, Log Out and always find your way back.","data-position":"left"});
     $t1.filter('.t3').attr({"data-intro":"Quickly search for jobs in Linkedin, Indeed and Ziprecruiter with one click!","data-position":"right"});
 
     // chardin full page tour
-    $('body').chardinJs('start')
+    $('body').chardinJs('start');
   <% end %>
 
+// Displays tour2 when first time new job will be added
+
+  <% if true %>
+    $('.tour2').attr("data-intro","Just drag and drop/copy and paste the job posting's URL");
+
+    $('body').chardinJs('start');
+  <% end %>
 
 
 })

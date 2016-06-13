@@ -48,6 +48,9 @@ class JobsController < ApplicationController
   # GET /jobs/new
   def new
     @job = Job.new
+    if current_user.jobs.first.nil?
+      @tour = 2
+    end
   end
 
   # GET /jobs/1/edit
