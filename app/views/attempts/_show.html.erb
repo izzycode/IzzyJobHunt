@@ -10,7 +10,7 @@
 
           <p>
             <strong>Date:</strong>
-            <%= attempt.date.strftime('%a %d %b %Y')  %>
+            <%= attempt.date.strftime('%a %d %b %Y') if !attempt.date.nil? %>
           </p>
 
           <p>

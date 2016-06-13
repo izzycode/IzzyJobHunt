@@ -29,6 +29,11 @@ gem 'json'
 gem 'rails_12factor', group: :production
 gem 'active_importer'
 
+# # Web tour for first time users
+# group :assets do
+#   gem "chardinjs-rails"
+# end
+
 # Auth0 authentication
 gem 'omniauth', '~> 1.3'
 gem 'omniauth-auth0', '~> 1.4'

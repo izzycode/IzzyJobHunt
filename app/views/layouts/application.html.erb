@@ -38,13 +38,13 @@
     <![endif]-->
   </head>
   <body>
-    <div class="navbar navbar-static-top">
+    <div class="navbar navbar-static-top tour1 t1">
       <div class="container">
           <div class="navbar-collapse collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav">
               <li><a href="<%= logged_in? ? user_path(current_user) : "#" %>"><strong>EzzyJobHunt</strong></a></li>
               <% if logged_in? %>
-                <li><%= link_to "New Job", new_job_path(current_user.id) %></li>
+                <li ><%= link_to "New Job", new_job_path(current_user.id) %></li>
                 <% if any_archived_jobs? %>
                   <li><%= link_to "Archived", jobs_path(current_user.id, archived: true) %></li>
                 <% end %>
@@ -70,7 +70,7 @@
 
         <!--  Side bar displays user info when signed in   -->
         <% if logged_in? %>
-          <div class="col-lg-4" >
+          <div class="col-lg-4 tour1 t2">
             <div class="well sidebar-nav "  style="background: url(<%= !Rails.env.development? ? session[:image] : "" %>); background-size:cover;">
               <div id="side-info">
                 <h3><%= link_to "#{current_user.name}'s Page", current_user %></h3>

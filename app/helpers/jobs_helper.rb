@@ -1,6 +1,6 @@
 module JobsHelper
-  def this_many_current_jobs
-    Job.where(user_id: current_user.id, archived: false).count
+  def user_current_jobs
+    Job.where(user_id: current_user.id, archived: false)
   end
 
   def current_jobs

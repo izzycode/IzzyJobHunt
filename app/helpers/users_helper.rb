@@ -1,7 +1,7 @@
 module UsersHelper
 
   def check_to_mail?
-    if this_many_current_jobs >= 10 && user_current_kahunas.count >= 30
+    if user_current_jobs.count >= 10 && user_current_kahunas.count >= 30
       true
     else
       false

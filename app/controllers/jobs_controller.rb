@@ -48,6 +48,9 @@ class JobsController < ApplicationController
   # GET /jobs/new
   def new
     @job = Job.new
+    if current_user.jobs.first.nil?
+      @tour = 2
+    end
   end
 
   # GET /jobs/1/edit
@@ -59,8 +62,7 @@ class JobsController < ApplicationController
   def update
     respond_to do |format|
       if @job.update(job_params)
-        @job.company = params[:job][:name] if params[:job][:name]
-        @job.company.save
+        @job.create_company(name:params[:job][:name])
         format.html { redirect_to current_user, notice: 'Job was successfully updated.' }
         format.json { render :show, status: :ok, location: @job }
       else
