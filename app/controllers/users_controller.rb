@@ -12,6 +12,9 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    if current_user.created_at > Time.now-1.minutes
+      @tour = 1
+    end
     @company = Company.new
     @job = Job.new
     if check_to_mail?

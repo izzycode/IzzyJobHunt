@@ -5,7 +5,7 @@
       <div class="panel-heading">
 
         <div class="clickable-position">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= i %>" class="btn btn-default  big-btn btn-1"><%= job.position.capitalize %></a>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= i %>" class="btn btn-default  big-btn btn-1" data-intro="You can expand on the Applied job to add details." data-position="bottom" ><%= job.position.capitalize %></a>
         </div>
 
         <div class="clickable">
@@ -15,13 +15,13 @@
         </div>
 
         <div class="clickable">
-          <%= link_to "Edit", edit_job_path(job), class:"btn btn-default big-btn btn-3" %>
+          <%= link_to "Edit", edit_job_path(job), class:"btn btn-default big-btn btn-3", data:{intro:"Edit the job's info.", position:"bottom"}%>
         </div>
 
         <div class="clickable">
           <a><%= form_for( job, url: job_path(job), html: { method: :patch } ) do |f| %>
             <%= f.hidden_field :archived, value: true %>
-            <%= f.submit "Send to Archive", class:"btn btn-default big-btn btn-4"%>
+            <%= f.submit "Send to Archive", class:"btn btn-default big-btn btn-4" %>
           <% end %></a>
         </div>
       </div>

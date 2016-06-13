@@ -17,10 +17,8 @@ module HonchosHelper
   def user_current_kahunas
     kahunas = []
     companies = []
-    current_user.jobs.each do |job|
-      if job.archived == false
-        companies << job.company_id
-      end
+    user_current_jobs.each do |job|
+      companies << job.company_id
     end
     companies.each do |comp|
       kahunas << Honcho.where(company_id: comp)

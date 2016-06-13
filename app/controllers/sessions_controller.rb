@@ -21,7 +21,6 @@ class SessionsController < ApplicationController
       @user ||= User.find_by(uid: session[:userinfo].uid)
       log_in(@user)
     end
-
     redirect_to current_user
   end
 

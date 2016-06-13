@@ -14,6 +14,10 @@ function open_win(event) {
   window.open("https://www.linkedin.com/jobs/"+whatLink+"-jobs-"+whereLink+"?trk=jserp_search_button_execute");
 }
 
+
+
+
+
 $(document).ready(function(){
   if (parseInt($('#ten').text()) > 9) {
     $('#ten').addClass('neon-glow')
@@ -22,60 +26,16 @@ $(document).ready(function(){
     $('#thirty').addClass('neon-glow')
   }
 
-  
-// chardin full page tour
-  $('body').chardinJs('start')
+  <% if @tour ==1 %>
+    var $t1 = $('.tour1')
+    $t1.filter('.t1').attr("data-intro","Add jobs you applied for.");
+    $t1.filter('.t2').attr({"data-intro":"Edit your name, Log Out and always find your way back.","data-position":"left"});
+    $t1.filter('.t3').attr({"data-intro":"Quickly search for jobs in Linkedin, Indeed and Ziprecruiter with one click!","data-position":"right"});
 
-
-
-
+    // chardin full page tour
+    $('body').chardinJs('start')
+  <% end %>
 
 
 
 })
-
-
-
-
-
-
-
-
-
-// $(document).ready(function(){
-//     var $demo, duration, remaining, tour;
-//     $demo = $("#demo");
-//     tour = new Tour({
-//       debug: true,
-//       steps: [
-//         {
-//           element: "#demo",
-//           placement: "bottom",
-//           title: "Welcome to Bootstrap Tour!",
-//           content: "Introduce new users to your product by walking them through it step by step."
-//         }, {
-//           element: "#side-info",
-//           smartPlacement: true,
-//           title: "A super simple setup",
-//           content: "Easy is better, right? The tour is up and running with just a few options and steps."
-//         }, {
-//           element: "#demo",
-//           placement: "top",
-//           title: "Best of all, it's free!",
-//           content: "Yeah! Free as in beer... or speech. Use and abuse, but don't forget to contribute!"
-//         }, {
-//           element: "#side-info",
-//           smartPlacement: true,
-//           title: "Flexibilty and expressiveness",
-//           content: "There are more options for those who want to get on the dark side.<br>\nPower to the people!",
-//           reflex: true
-//         }, {
-//           element: "#demo",
-//           placement: "top",
-//           title: "Automagically expiring step",
-//           content: "A new addition: make your tour (or step) completely automatic. You set the duration, Bootstrap\nTour does the rest. For instance, this step will disappear in <em>5</em> seconds.",
-//         }
-//       ]});
-//   tour.init();
-//   tour.start();
-//   });
