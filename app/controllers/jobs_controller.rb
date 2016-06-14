@@ -49,7 +49,7 @@ class JobsController < ApplicationController
   def new
     @job = Job.new
     if current_user.jobs.first.nil?
-      @tour = 2
+      gon.tour2 = 2
     end
   end
 

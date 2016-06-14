@@ -27,7 +27,7 @@ gem 'httparty'
 gem 'nokogiri'
 gem 'json'
 gem 'rails_12factor', group: :production
-gem 'active_importer'
+gem 'gon'
 
 # # Web tour for first time users
 # group :assets do
