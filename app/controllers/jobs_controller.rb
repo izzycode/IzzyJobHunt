@@ -60,15 +60,11 @@ class JobsController < ApplicationController
   # PATCH/PUT /jobs/1
   # PATCH/PUT /jobs/1.json
   def update
-    respond_to do |format|
-      if @job.update(job_params)
-        @job.create_company(name:params[:job][:name])
-        format.html { redirect_to current_user, notice: 'Job was successfully updated.' }
-        format.json { render :show, status: :ok, location: @job }
-      else
-        format.html { render :edit }
-        format.json { render json: @job.errors, status: :unprocessable_entity }
-      end
+    if @job.update(job_params)
+      @job.create_company(name:params[:job][:name])
+      redirect_to current_user, notice: 'Job was successfully updated.'
+    else
+      redirect_to current_user, error: "Something went wrong, let's go ahead and try that again"
     end
   end
 

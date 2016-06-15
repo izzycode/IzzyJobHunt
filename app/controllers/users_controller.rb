@@ -15,6 +15,9 @@ class UsersController < ApplicationController
     if current_user.created_at > Time.now-1.minutes
       gon.tour1 = 1
     end
+    if current_user.jobs.count == 1 &&  current_user.jobs.first.created_at > Time.now-1.minutes
+      gon.tour3 = 3
+    end
     @company = Company.new
     @job = Job.new
     if check_to_mail?
