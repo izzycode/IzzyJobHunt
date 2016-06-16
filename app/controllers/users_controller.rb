@@ -12,10 +12,10 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    if current_user.created_at > Time.now-1.minutes
+    if current_user.created_at > Time.now-4.seconds
       gon.tour1 = 1
     end
-    if current_user.jobs.count == 1 &&  current_user.jobs.first.created_at > Time.now-1.minutes
+    if current_user.jobs.count == 1 && current_user.jobs.first.id == 1 && current_user.jobs.first.created_at > Time.now-4.seconds
       gon.tour3 = 3
     end
     @company = Company.new

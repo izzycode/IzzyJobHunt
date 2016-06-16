@@ -38,13 +38,6 @@ $(document).on('ready page:change',function(){
     $('body').chardinJs('start');
   }
 
-// Displays tour2 when first time new job will be added
-  if (gon.tour2 === 2){
-    $('.tour2').attr("data-intro","Just drag and drop/copy and paste the job posting's URL");
-
-    $('body').chardinJs('start');
-  };
-
 // Displays tour3 after first job has been added
   if (gon.tour3 === 3){
     $t3 = $('.tour3')
