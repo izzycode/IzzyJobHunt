@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       gon.tour1 = 1
     end
     if current_user.jobs.count == 1 && current_user.jobs.first.id == 1 && current_user.jobs.first.created_at > Time.now-4.seconds
-      gon.tour3 = 3
+      gon.tour4 = 3
     end
     @company = Company.new
     @job = Job.new

@@ -19366,9 +19366,9 @@ $(document).on('ready page:change',function(){
     $('body').chardinJs('start');
   }
 
-// Displays tour3 after first job has been added
-  if (gon.tour3 === 3){
-    $t3 = $('.tour3')
+// Displays tour4 after first job has been added
+  if (gon.tour4 === 3){
+    $t3 = $('.tour4')
     $t3.filter('.t31').attr({"data-intro":"You can expand on the Applied job to add details.", "data-position":"bottom"});
     $t3.filter('.t32').attr({"data-intro":"Edit the job's info.", "data-position":"bottom"});
     $t3.filter('.t33').attr({"data-intro":"Click on the company name to add/edit details.", "data-position":"top"});

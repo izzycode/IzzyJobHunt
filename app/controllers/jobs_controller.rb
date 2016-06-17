@@ -55,6 +55,8 @@ class JobsController < ApplicationController
 
   # GET /jobs/1/edit
   def edit
+    p "<>"*47
+    p "edit!  "*24
   end
 
   # PATCH/PUT /jobs/1

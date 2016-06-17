@@ -9,4 +9,11 @@ $(document).on('page:change',function(){
 
     $('body').chardinJs('start');
   };
+
+  if (gon.tour3 === 3){
+    $('.tour3').attr("data-intro","Hopefully we were able to grab this info...");
+    $('.tour3').attr("data-intro","...otherwise please go ahead and edit it yourself.");
+
+    $('body').chardinJs('start');
+  };
 });
