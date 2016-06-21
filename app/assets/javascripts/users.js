@@ -3,8 +3,6 @@
 
 // Opens 3 pages for job searching
 function open_win(event) {
-  // alert(event);
-  // event.preventDefault();
   var what = $('#what').val().trim().replace(/\s/g,"+");
   var where = $('#where').val().trim().replace(/\s/g,"+");
   var whatLink = $('#what').val().trim().replace(" ","-");
