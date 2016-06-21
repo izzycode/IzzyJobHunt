@@ -55,8 +55,9 @@ class JobsController < ApplicationController
 
   # GET /jobs/1/edit
   def edit
-    p "<>"*47
-    p "edit!  "*24
+    if current_user.jobs.first.created_at > Time.now-4.seconds
+      gon.tour3 = 3
+    end
   end
 
   # PATCH/PUT /jobs/1
