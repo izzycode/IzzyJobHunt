@@ -93,7 +93,7 @@
       </footer>
 
     </div> <!-- /container -->
-    <% if Rails.env.development? || current_user.email == ENV['ADMIN_EMAIL']%>
+    <% if Rails.env.development?%>
       <%= console %>
       <%#= debug(params) %>
     <% end %>
