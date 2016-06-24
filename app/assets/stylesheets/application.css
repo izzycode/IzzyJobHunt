@@ -142,3 +142,7 @@ a:hover{
 .table-hover>tbody>tr:hover{
   background-color: rgba(214, 236, 246, 0.2);
 }
+
+.app-name{
+  margin-left: 10%;
+}

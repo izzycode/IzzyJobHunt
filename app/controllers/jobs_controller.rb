@@ -37,9 +37,11 @@ class JobsController < ApplicationController
     p "<>"*47
     p company
     p position
+    p session[:userinfo].info
     @job.position = position
     @job.create_company(name:company)
     @job.save
+    current_user.jobs << @job
 
     redirect_to edit_job_path(@job), notice: 'Please verify the information obtained from the website.'
 
