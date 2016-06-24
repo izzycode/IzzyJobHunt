@@ -38,6 +38,7 @@ class JobsController < ApplicationController
     p company
     p position
     p session[:userinfo].info
+    
     @job.position = position
     @job.create_company(name:company)
     @job.save
