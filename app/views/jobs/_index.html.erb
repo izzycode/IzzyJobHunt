@@ -21,7 +21,7 @@
         <div class="clickable">
           <a><%= form_for( job, url: job_path(job), html: { method: :patch } ) do |f| %>
             <%= f.hidden_field :archived, value: true %>
-            <%= f.submit "Send to Archive", class:"btn btn-default big-btn btn-4" %>
+            <%= f.submit "Archive", class:"btn btn-default big-btn btn-4" %>
           <% end %></a>
         </div>
       </div>

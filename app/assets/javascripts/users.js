@@ -2,7 +2,7 @@
 // All this logic will automatically be available in application.js.
 
 // Opens 3 pages for job searching
-function open_win(event) {
+function open_win() {
   var what = $('#what').val().trim().replace(/\s/g,"+");
   var where = $('#where').val().trim().replace(/\s/g,"+");
   var whatLink = $('#what').val().trim().replace(" ","-");
@@ -27,30 +27,30 @@ $(document).on('ready page:change',function(){
 
 
 // Displays tour1 when user signs in for the first time
-  // if (gon.tour1 === 1){
+  if (gon.tour1 === 1){
     var $t1 = $('.tour1')
     var position = "top";
     var bottomMargin = "0";
     $t1.filter('.t1').attr("data-intro","Add jobs you applied for.");
 
-    if ($(window).width()<1200) {
-      bottomMargin = "15%";
+    // Repositions content according to screen size
+    if ($(window).width()<640) {
+      bottomMargin = "25%";
       position = "bottom";
     }
-    else if ($(window).width()<640) {
-      bottomMargin = "25%";
+    else if ($(window).width()<1200) {
+      bottomMargin = "15%";
       position = "bottom";
     }
     $t1.filter('.t2').css("margin-bottom",bottomMargin).attr({"data-intro":"Edit your name, Log Out and always find your way back.","data-position":"bottom"});
     $t1.filter('.t3').attr({"data-intro":"Quickly search for jobs in Linkedin, Indeed and Ziprecruiter with one click!","data-position":position});
-
-
 
     // chardin full page tour
     $('body').chardinJs('start');
     $('body').click(function(){
       $t1.filter('.t2').removeAttr('style');
     })
+  }
 
 // Displays tour4 after first job has been added
   if (gon.tour4 === 4){
