@@ -35,7 +35,7 @@
           <h4><strong>Contacts:</strong></h4>
           <%= link_to "New Contact", new_honcho_path(current_user.id, company_id: job.company.id), class:"btn btn-xs btn-warning" %>
           <% if any_company_kahunas?(job.company) %>
-            <%= render 'honchos/index', honchos: company_kahunas(job.company), i: i %>
+            <%= render 'honchos/index', company_id: job.company.id, i: i %>
           <% end %>
           <!-- Honchos -->
 

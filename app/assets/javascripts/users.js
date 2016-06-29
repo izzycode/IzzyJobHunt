@@ -13,9 +13,9 @@ function open_win() {
   window.open("https://www.linkedin.com/jobs/"+whatLink+"-jobs-"+whereLink+"?trk=jserp_search_button_execute");
 }
 
+turbolinks:load
 
-
-$(document).on('ready page:change',function(){
+$(document).on('ready turbolinks:load',function(){
 // Adds neon glow when jobs count reaches 10
   if (parseInt($('#ten').text()) > 9) {
     $('#ten').addClass('neon-glow')

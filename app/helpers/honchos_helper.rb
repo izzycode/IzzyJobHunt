@@ -10,8 +10,8 @@ module HonchosHelper
     end
   end
 
-  def company_kahunas(company)
-    Honcho.where(company_id: company.id)
+  def company_kahunas(company_id)
+    Honcho.where(company_id: company_id)
   end
 
   def user_current_kahunas
