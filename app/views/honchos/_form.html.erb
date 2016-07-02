@@ -1,6 +1,5 @@
-<!-- need to fix updating (it's actually going to edit as GET when it should PATCH to update, this changing honcho.company.id) -->
 
-<%= form_for @honcho, method: :put do |f| %>
+<%= form_for @honcho do |f| %>
   <% if @honcho.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@honcho.errors.count, "error") %> prohibited this contact from being saved:</h2>
@@ -26,7 +25,7 @@
   <%= f.label :useful_links %>
   <%= f.text_area :links, class:"form-control" %>
   <% if !params[:id].nil? %>
-    <%= f.hidden_field :company_id, value: params[:id] %>
+    <%= f.hidden_field :company_id, value: @honcho.company_id %>
   <% else %>
     <%= f.hidden_field :company_id, value: params[:company_id] %>
   <% end %>
