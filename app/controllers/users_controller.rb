@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [ :edit, :update, :destroy]
+  before_action :set_user, only: [ :edit, :update, :destroy ]
   before_action :authorize
   before_action :admin, only: [:index]
 
@@ -38,8 +38,12 @@ class UsersController < ApplicationController
     name = params[:name]
     email = params[:email]
     body = params[:comments]
-    Usermailer.user_contact(name, email, body).deliver
+    UserMailer.user_contact(name, email, body).deliver
     redirect_to current_user, notice: 'Message sent'
+  end
+
+  def contact
+    @user ||= User.find(params[:format])
   end
 
   # GET /users/new
@@ -49,6 +53,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+
   end
 
   # POST /users

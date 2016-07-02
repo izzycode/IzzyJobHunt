@@ -11,9 +11,9 @@ class UserMailer < ApplicationMailer
   def user_contact(user, email, body)
     @user = user
     @email = email
-    @body = body`enter code here`
-
-    mail(from: email, subject: 'Contacts')
+    @body = body
+    @url = 'https://ezzy-job-hunt.herokuapp.com/'
+    mail to: ENV['HIRING_PARTNERS_DIRECTOR_EMAIL'], from: email, subject: 'Contacts'
 end
 
 

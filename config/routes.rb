@@ -19,12 +19,12 @@ Rails.application.routes.draw do
   get 'job_search', to: 'users#search'
   get 'mail_please', to: 'users#mail_please'
   get 'test', to: "sessions#test_create"
-  get 'contact_mail', to: "users#contact_mail"
+  get 'contact', to: "users#contact"
+  post 'contact_mail', to: "users#contact_mail"
 
   # auth0 routes
   get "/auth/auth0/callback", to: "auth0#callback"
   get "/auth/failure", to: "auth0#failure"
-
 
   match '*path' => redirect { |p, req| req.flash[:error] = "I don't think you'll find anything useful in #{req.env["HTTP_HOST"]}#{req.env["REQUEST_PATH"]}"; '/' }, via: :get
 
