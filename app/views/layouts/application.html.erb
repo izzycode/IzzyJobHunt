@@ -42,6 +42,7 @@
           <li><a class="navbar-brand" href="<%= logged_in? ? user_path(current_user) : "#" %>"><strong class="app-name">EzzyJobHunt</strong></a></li>
           <% if logged_in? %>
             <li ><%= link_to "New Job", new_job_path(current_user.id) %></li>
+            <li ><%= link_to "Contact",  %></li>
             <% if any_archived_jobs? %>
               <li><%= link_to "Archived", jobs_path(current_user.id, archived: true) %></li>
             <% end %>

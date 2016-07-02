@@ -34,6 +34,14 @@ class UsersController < ApplicationController
     redirect_to current_user, notice: 'Email sent!'
   end
 
+  def contact_mail
+    name = params[:name]
+    email = params[:email]
+    body = params[:comments]
+    Usermailer.user_contact(name, email, body).deliver
+    redirect_to current_user, notice: 'Message sent'
+  end
+
   # GET /users/new
   def new
     @user = User.new
@@ -45,17 +53,17 @@ class UsersController < ApplicationController
 
   # POST /users
   # POST /users.json
-  # def create
-  #   @user = User.new(email:session[:userinfo].info.email,
-  #               name:session[:userinfo].info.name,
-  #               uid:session[:userinfo].uid)
-  #   if @user.save
-  #     @user.save
-  #     redirect_to @user, notice: "Welcome #{@user.name}!"
-  #   else
-  #     redirect_to root_path, status: "Something went wrong. Let's try this again."
-  #   end
-  # end
+  def create
+    @user = User.new(email:session[:userinfo].info.email,
+                name:session[:userinfo].info.name,
+                uid:session[:userinfo].uid)
+    if @user.save
+      @user.save
+      redirect_to @user, notice: "Welcome #{@user.name}!"
+    else
+      redirect_to root_path, status: "Something went wrong. Let's try this again."
+    end
+  end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json

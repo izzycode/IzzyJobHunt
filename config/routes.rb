@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get 'job_search', to: 'users#search'
   get 'mail_please', to: 'users#mail_please'
   get 'test', to: "sessions#test_create"
-
+  get 'contact_mail', to: "users#contact_mail"
 
   # auth0 routes
   get "/auth/auth0/callback", to: "auth0#callback"
