@@ -29,6 +29,10 @@ gem 'json'
 gem 'rails_12factor', group: :production
 gem 'gon'
 
+# added for testing in heroku temporary
+gem 'web-console', '~> 2.0'
+
+
 # # Web tour for first time users
 # group :assets do
 #   gem "chardinjs-rails"
