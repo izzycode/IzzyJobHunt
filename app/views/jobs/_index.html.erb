@@ -4,6 +4,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
 
+          <p class="btn" disabled><%= pluralize( ((Time.now - job.created_at)/86400).to_i, 'day') %> ago.</p>
         <div class="clickable-position">
           <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= i %>" class="btn btn-default  big-btn btn-1 tour4 t41"><%= job.position.capitalize %></a>
         </div>
