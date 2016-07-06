@@ -1,6 +1,6 @@
 <div class="container-content">
-    <div class="container">
-      <h3>Hi there <%= @user.name %>. Please take a moment to give suggestions, point bugs or simply fill me up with flattery.</h3>
+    <div class="container col-lg-12">
+      <h3>Hi there <%= @user.name %>. Please take a moment to give suggestions, point out bugs or simply fill me up with flattery.</h3>
         <%= form_tag(contact_mail_path) do %>
             <div class="form-group">
                 <%= label_tag 'name', 'Name' %>

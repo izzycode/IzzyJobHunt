@@ -47,7 +47,7 @@
               <li><%= link_to "Archived", jobs_path(current_user.id, archived: true) %></li>
             <% end %>
 
-            <% if check_to_mail? && false %>
+            <% if check_to_mail? && false %> <!-- need to know whats up with the famous 10/30s -->
               <li>
                 <%= link_to "Send Rita an email alert", mail_please_path, id:"submit-email"  %>
               </li>
