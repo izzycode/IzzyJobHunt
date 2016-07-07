@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       gon.tour1 = 1
       p "GON 1  "*19
     end
-    if current_user.jobs.count == 1  && current_user.jobs.first.created_at > Time.now-4.seconds
+    if (current_user.jobs.count == 1)  && (current_user.jobs.first.updated_at-current_user.jobs.first.created_at < 30.seconds)
       gon.tour4 = 4
       p "GON 4  "*19
     end
