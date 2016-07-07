@@ -13,7 +13,6 @@ function open_win() {
   window.open("https://www.linkedin.com/jobs/"+whatLink+"-jobs-"+whereLink+"?trk=jserp_search_button_execute");
 }
 
-turbolinks:load
 
 $(document).on('ready turbolinks:load',function(){
 // Adds neon glow when jobs count reaches 10
@@ -55,7 +54,7 @@ $(document).on('ready turbolinks:load',function(){
 // Displays tour4 after first job has been added
   if (gon.tour4 === 4){
     $t4 = $('.tour4')
-    $t4.filter('.t41').attr({"data-intro":"You can expand on the Applied job to add details.", "data-position":"bottom left:20px"});
+    $t4.filter('.t41').attr({"data-intro":"You can expand on the Applied job to add details.", "data-position":"bottom"});
     $t4.filter('.t42').attr({"data-intro":"Edit the job's info.", "data-position":"bottom"});
     $t4.filter('.t43').attr({"data-intro":"Click on the company name to add/edit details.", "data-position":"top"});
 

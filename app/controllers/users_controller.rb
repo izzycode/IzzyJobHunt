@@ -14,10 +14,13 @@ class UsersController < ApplicationController
   def show
     if current_user.created_at > Time.now-4.seconds
       gon.tour1 = 1
+      p "GON 1  "*19
     end
-    if current_user.jobs.count == 1 && current_user.jobs.first.id == 1 && current_user.jobs.first.created_at > Time.now-4.seconds
-      gon.tour4 = 3
+    if current_user.jobs.count == 1  && current_user.jobs.first.created_at > Time.now-4.seconds
+      gon.tour4 = 4
+      p "GON 4  "*19
     end
+
     @company = Company.new
     @job = Job.new
     if check_to_mail?
