@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 
   def mail_please
     @user = current_user
-    UserMailer.ten_thirty_full(current_user).deliver
+    UserMailer.ten_thirty_full(current_user).deliver!
     redirect_to current_user, notice: 'Email sent!'
   end
 
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     name = params[:name]
     email = params[:email]
     body = params[:comments]
-    UserMailer.user_contact(name, email, body).deliver
+    UserMailer.user_contact(name, email, body).deliver!
     redirect_to current_user, notice: 'Message sent'
   end
 

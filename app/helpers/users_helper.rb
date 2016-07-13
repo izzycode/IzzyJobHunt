@@ -9,7 +9,8 @@ module UsersHelper
   end
 
   def admin
-    if User.find_by(email: ENV['ADMIN_EMAIL']).nil?
+    if User.find_by(email: ENV['ADMIN_EMAIL']).email != current_user.email
+      p "same e-mail!"
       redirect_to root_path, error:"Sorry you don't have access to this option"
     end
     true
