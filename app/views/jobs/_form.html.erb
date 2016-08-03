@@ -12,14 +12,14 @@
   <% end %>
 
   <%= f.label :position %>
-  <%= f.text_field :position, class:"form-control tour3 t31" %>
+  <%= f.text_field :position, class:"form-control tour3 t31", placeholder:"Couldn't autofill this information, please paste company name here." %>
   <%= f.label :web_address %>
   <%= f.text_field :web_address, class:"form-control" %>
   <%= f.hidden_field :user_id, value: current_user.id, class:"form-control" %>
 
   <h1>Company Info</h1>
   <%= f.label :name %>
-  <%= f.text_field :name, class:"form-control tour3 t32", value:@job.company.name %>
+  <%= f.text_field :name, class:"form-control tour3 t32", value:@job.company.name, placeholder:"Couldn't autofill this information, please paste company name here." %>
 
   <br />
   <br />

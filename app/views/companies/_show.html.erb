@@ -1,7 +1,7 @@
 
 <!-- Company Modal button -->
 <button type="button" class="btn btn-default big-btn btn-2 tour4 t43" data-toggle="modal" data-target="#myModal<%= i %>">
-    <%= company.name %>
+    <%= company.name.empty? ? "Company##{company.id}" : company.name.titleize %>
 </button><!-- Company Modal button -->
 
 <!-- Modal -->
@@ -10,7 +10,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"><%= company.name %></h4>
+        <h4 class="modal-title" id="myModalLabel"><%= company.name.empty? ? "Company##{company.id}" : company.name.titleize %></h4>
         </div>
         <div class="modal-body">
 
