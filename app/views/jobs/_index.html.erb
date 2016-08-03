@@ -1,6 +1,6 @@
 
 <div class="panel-group col-lg-12" id="accordion">
-  <% current_jobs.each_with_index do |job, i| %>
+  <% current_jobs.order(:created_at).each_with_index do |job, i| %>
     <div class="panel panel-default">
       <div class="panel-heading">
 
