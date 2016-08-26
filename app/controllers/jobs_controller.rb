@@ -24,7 +24,8 @@ class JobsController < ApplicationController
     response = HTTParty.get @job.web_address
     noko = Nokogiri::HTML response.body
     if @job.web_address.include?('indeed.com')
-      company = noko.xpath('//*[@id="job_header"]/span[1]').first.content
+      # company = noko.xpath('//*[@id="job_header"]/span[1]').first.content
+      company = noko.css('.jobtitle font').first.content
       position = noko.xpath('//*[@id="job_header"]/b/font').first.content
     elsif @job.web_address.include?('ziprecruiter.com')
       company = noko.css('span[itemprop="name"]').text
@@ -42,7 +43,7 @@ class JobsController < ApplicationController
     @job.position = position
     @job.create_company(name:company)
     @job.save
-    
+
     current_user.jobs << @job
 
     redirect_to edit_job_path(@job), notice: 'Please verify the information obtained from the website.'
