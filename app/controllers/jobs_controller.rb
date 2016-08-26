@@ -25,8 +25,9 @@ class JobsController < ApplicationController
     noko = Nokogiri::HTML response.body
     if @job.web_address.include?('indeed.com')
       # company = noko.xpath('//*[@id="job_header"]/span[1]').first.content
-      company = noko.css('.jobtitle font').first.content
-      position = noko.xpath('//*[@id="job_header"]/b/font').first.content
+      company = noko.css('.jobtitle font').first
+      # position = noko.xpath('//*[@id="job_header"]/b/font').first.content
+      position = noko.css('span.company').first.content
     elsif @job.web_address.include?('ziprecruiter.com')
       company = noko.css('span[itemprop="name"]').text
       position = noko.css('.job_header h1').text
