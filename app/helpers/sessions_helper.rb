@@ -9,11 +9,11 @@ module SessionsHelper
   end
 
   def current_user
-    User.find_by(email:session[:userinfo].info.email)
+    User.find_by(email:session[:userinfo].info.email.downcase)
   end
 
   def current_user?(user)
-    user == User.find_by(email:session[:userinfo].info.email)
+    user == User.find_by(email:session[:userinfo].info.email.downcase)
   end
 
   def authorize
