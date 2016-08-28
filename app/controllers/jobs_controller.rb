@@ -67,10 +67,11 @@ class JobsController < ApplicationController
   end
 
   # PATCH/PUT /jobs/1
-  # PATCH/PUT /jobs/1.json
+  # PATCH/PUT /jobs/1.json  Company##{company.id}
   def update
     if @job.update(job_params)
-      @job.create_company(name:params[:job][:name])
+      params[:job][:name]=="" ? @job.company.name = "N/A" : @job.company.name = params[:job][:name]
+      @job.company.save
       redirect_to current_user, notice: 'Job was successfully updated.'
     else
       redirect_to current_user, error: "Something went wrong, let's go ahead and try that again"
