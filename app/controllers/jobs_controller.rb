@@ -70,8 +70,10 @@ class JobsController < ApplicationController
   # PATCH/PUT /jobs/1.json  Company##{company.id}
   def update
     if @job.update(job_params)
-      params[:job][:name]=="" ? @job.company.name = "N/A" : @job.company.name = params[:job][:name]
-      @job.company.save
+      if !params[:job][:archived] #only execute when coming from autofill
+        params[:job][:name]=="" ? @job.company.name = "N/A" : @job.company.name = params[:job][:name]
+        @job.company.save
+      end
       redirect_to current_user, notice: 'Job was successfully updated.'
     else
       redirect_to current_user, error: "Something went wrong, let's go ahead and try that again"

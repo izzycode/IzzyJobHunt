@@ -14,7 +14,7 @@
     <% @jobs.each do |job| %>
       <tr>
         <td><%= job.position %></td>
-        <td><%= job.company.nil? ? "undefined" : job.company.name %></td>
+        <td><%= job.company.name %></td>
         <td><%= time_ago_in_words(job.created_at) %> ago</td>
         <td>
           <%= form_for( job, url: job_path(job), html: { method: :patch } ) do |f| %>
